@@ -11,7 +11,7 @@ import {
   EXPERIENCE,
   PROFILE,
   SERVICES,
-  WORKS,
+
   WORK_SETUP,
 } from "@/components/portfolio/data";
 
@@ -109,7 +109,7 @@ function Index() {
                 Book a discovery call
               </a>
               <a
-                href="#work"
+                href="#portfolio"
                 onMouseDown={ripple}
                 className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
               >
