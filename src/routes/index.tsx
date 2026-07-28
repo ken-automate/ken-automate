@@ -10,7 +10,6 @@ import {
   EXPERIENCE,
   PROFILE,
   SERVICES,
-  STACK,
   WORKS,
   WORK_SETUP,
 } from "@/components/portfolio/data";
