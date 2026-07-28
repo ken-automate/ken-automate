@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Logo } from "@/components/portfolio/Logo";
+import { ThemeToggle } from "@/components/portfolio/ThemeToggle";
+import { Reveal } from "@/components/portfolio/Reveal";
+import { useRipple } from "@/components/portfolio/Ripple";
+import { LogoMarquee } from "@/components/portfolio/LogoMarquee";
 import {
   CERTIFICATIONS,
   EDUCATION,
   EXPERIENCE,
   PROFILE,
   SERVICES,
-  STACK,
   WORKS,
   WORK_SETUP,
 } from "@/components/portfolio/data";
@@ -37,15 +40,17 @@ const NAV = [
 
 function SectionHeading({ index, title, lead }: { index: string; title: string; lead?: string }) {
   return (
-    <div className="mb-12 max-w-2xl">
+    <Reveal className="mb-12 max-w-2xl">
       <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary">{index}</span>
       <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">{title}</h2>
       {lead && <p className="mt-4 text-base leading-relaxed text-muted-foreground">{lead}</p>}
-    </div>
+    </Reveal>
   );
 }
 
 function Index() {
+  const ripple = useRipple();
+
   return (
     <div id="top" className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
@@ -62,14 +67,18 @@ function Index() {
               </a>
             ))}
           </nav>
-          <a
-            href={PROFILE.calendly}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Book a call
-          </a>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <a
+              href={PROFILE.calendly}
+              target="_blank"
+              rel="noreferrer"
+              onMouseDown={ripple}
+              className="press ripple-host rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+            >
+              Book a call
+            </a>
+          </div>
         </div>
       </header>
 
@@ -93,13 +102,15 @@ function Index() {
                 href={PROFILE.calendly}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] transition-opacity hover:opacity-90"
+                onMouseDown={ripple}
+                className="press ripple-host rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] hover:opacity-90"
               >
                 Book a discovery call
               </a>
               <a
                 href="#work"
-                className="rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+                onMouseDown={ripple}
+                className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
               >
                 See previous work
               </a>
@@ -110,11 +121,11 @@ function Index() {
                 ["7", "Certifications"],
                 ["50–70", "Staff managed"],
                 ["4", "Automation platforms"],
-              ].map(([value, label]) => (
-                <div key={label} className="bg-surface px-5 py-6">
+              ].map(([value, label], i) => (
+                <Reveal key={label} delay={i * 80} className="bg-surface px-5 py-6">
                   <dt className="font-display text-2xl font-semibold text-primary">{value}</dt>
                   <dd className="mt-1 text-xs text-muted-foreground">{label}</dd>
-                </div>
+                </Reveal>
               ))}
             </dl>
           </div>
@@ -129,8 +140,13 @@ function Index() {
               lead="Practical automation work, scoped around where the manual effort actually is."
             />
             <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
-              {SERVICES.map((s) => (
-                <article key={s.no} className="group bg-surface p-8 transition-colors hover:bg-card">
+              {SERVICES.map((s, i) => (
+                <Reveal
+                  key={s.no}
+                  as="article"
+                  delay={i * 90}
+                  className="group bg-surface p-8 transition-colors hover:bg-card"
+                >
                   <span className="font-mono text-xs text-primary">{s.no}</span>
                   <h3 className="mt-4 text-xl font-semibold">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
@@ -144,7 +160,7 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -156,8 +172,9 @@ function Index() {
             <SectionHeading index="02 / Experience" title="Work experience" />
             <div className="space-y-px bg-border">
               {EXPERIENCE.map((job) => (
-                <article
+                <Reveal
                   key={job.company}
+                  as="article"
                   className="grid gap-6 bg-background py-10 md:grid-cols-[280px_1fr]"
                 >
                   <div>
@@ -175,7 +192,7 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                </article>
+                </Reveal>
               ))}
             </div>
             <div className="mt-12 grid gap-8 border-t border-border pt-10 sm:grid-cols-2">
@@ -213,8 +230,13 @@ function Index() {
               lead="Systems built and shipped inside live operations — not demos."
             />
             <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
-              {WORKS.map((w) => (
-                <article key={w.title} className="flex flex-col bg-surface p-7">
+              {WORKS.map((w, i) => (
+                <Reveal
+                  key={w.title}
+                  as="article"
+                  delay={(i % 3) * 90}
+                  className="flex flex-col bg-surface p-7 transition-colors hover:bg-card"
+                >
                   <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
                     {w.context}
                   </p>
@@ -229,7 +251,7 @@ function Index() {
                       </span>
                     ))}
                   </div>
-                </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -243,29 +265,10 @@ function Index() {
               title="Software & platforms I use"
               lead="The tools I build in daily, plus the setup that keeps me online."
             />
-            <div className="space-y-8">
-              {STACK.map((group) => (
-                <div
-                  key={group.group}
-                  className="grid gap-4 border-t border-border pt-6 md:grid-cols-[240px_1fr]"
-                >
-                  <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                    {group.group}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-sm border border-border bg-surface px-3 py-1.5 text-sm"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-14 rounded-sm border border-border bg-surface p-8">
+            <Reveal className="rounded-sm border border-border bg-surface py-6">
+              <LogoMarquee />
+            </Reveal>
+            <Reveal className="mt-14 rounded-sm border border-border bg-surface p-8">
               <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
                 Work setup
               </h3>
@@ -276,7 +279,7 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </section>
 
