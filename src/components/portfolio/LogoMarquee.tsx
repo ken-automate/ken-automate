@@ -30,7 +30,7 @@ function Row() {
             loading="lazy"
             width={40}
             height={40}
-            className="h-10 w-10 object-contain opacity-70 grayscale transition-all duration-300 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0"
+            className="h-10 w-10 object-contain opacity-70 grayscale transition-all duration-300 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 dark:invert dark:group-hover:invert-0"
           />
         </div>
       ))}
