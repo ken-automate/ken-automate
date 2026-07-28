@@ -266,29 +266,10 @@ function Index() {
               title="Software & platforms I use"
               lead="The tools I build in daily, plus the setup that keeps me online."
             />
-            <div className="space-y-8">
-              {STACK.map((group) => (
-                <div
-                  key={group.group}
-                  className="grid gap-4 border-t border-border pt-6 md:grid-cols-[240px_1fr]"
-                >
-                  <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                    {group.group}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-sm border border-border bg-surface px-3 py-1.5 text-sm"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-14 rounded-sm border border-border bg-surface p-8">
+            <Reveal className="rounded-sm border border-border bg-surface py-6">
+              <LogoMarquee />
+            </Reveal>
+            <Reveal className="mt-14 rounded-sm border border-border bg-surface p-8">
               <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
                 Work setup
               </h3>
@@ -299,7 +280,7 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </section>
 
