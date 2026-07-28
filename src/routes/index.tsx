@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Logo } from "@/components/portfolio/Logo";
+import { ThemeToggle } from "@/components/portfolio/ThemeToggle";
+import { Reveal } from "@/components/portfolio/Reveal";
+import { useRipple } from "@/components/portfolio/Ripple";
+import { LogoMarquee } from "@/components/portfolio/LogoMarquee";
 import {
   CERTIFICATIONS,
   EDUCATION,
@@ -37,15 +41,17 @@ const NAV = [
 
 function SectionHeading({ index, title, lead }: { index: string; title: string; lead?: string }) {
   return (
-    <div className="mb-12 max-w-2xl">
+    <Reveal className="mb-12 max-w-2xl">
       <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary">{index}</span>
       <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">{title}</h2>
       {lead && <p className="mt-4 text-base leading-relaxed text-muted-foreground">{lead}</p>}
-    </div>
+    </Reveal>
   );
 }
 
 function Index() {
+  const ripple = useRipple();
+
   return (
     <div id="top" className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
@@ -62,14 +68,18 @@ function Index() {
               </a>
             ))}
           </nav>
-          <a
-            href={PROFILE.calendly}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Book a call
-          </a>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <a
+              href={PROFILE.calendly}
+              target="_blank"
+              rel="noreferrer"
+              onMouseDown={ripple}
+              className="press ripple-host rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+            >
+              Book a call
+            </a>
+          </div>
         </div>
       </header>
 
