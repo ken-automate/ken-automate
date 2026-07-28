@@ -4,13 +4,14 @@ import { ThemeToggle } from "@/components/portfolio/ThemeToggle";
 import { Reveal } from "@/components/portfolio/Reveal";
 import { useRipple } from "@/components/portfolio/Ripple";
 import { LogoMarquee } from "@/components/portfolio/LogoMarquee";
+import { PortfolioFolders } from "@/components/portfolio/PortfolioFolders";
 import {
   CERTIFICATIONS,
   EDUCATION,
   EXPERIENCE,
   PROFILE,
   SERVICES,
-  WORKS,
+
   WORK_SETUP,
 } from "@/components/portfolio/data";
 
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/")({
 const NAV = [
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
-  { label: "Work", href: "#work" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Stack", href: "#stack" },
   { label: "Contact", href: "#contact" },
 ];
@@ -108,7 +109,7 @@ function Index() {
                 Book a discovery call
               </a>
               <a
-                href="#work"
+                href="#portfolio"
                 onMouseDown={ripple}
                 className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
               >
@@ -221,39 +222,15 @@ function Index() {
           </div>
         </section>
 
-        {/* Previous works */}
-        <section id="work" className="border-b border-border">
+        {/* Portfolio */}
+        <section id="portfolio" className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
-              index="03 / Selected work"
-              title="Previous works"
-              lead="Systems built and shipped inside live operations — not demos."
+              index="03 / Portfolio"
+              title="Portfolio"
+              lead="Automations built and shipped inside live operations. Open a folder to see the build, the tools behind it and the value it delivers."
             />
-            <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
-              {WORKS.map((w, i) => (
-                <Reveal
-                  key={w.title}
-                  as="article"
-                  delay={(i % 3) * 90}
-                  className="flex flex-col bg-surface p-7 transition-colors hover:bg-card"
-                >
-                  <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                    {w.context}
-                  </p>
-                  <h3 className="mt-3 text-lg font-semibold">{w.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {w.body}
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {w.tags.map((t) => (
-                      <span key={t} className="font-mono text-[11px] text-primary">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <PortfolioFolders />
           </div>
         </section>
 
