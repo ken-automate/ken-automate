@@ -19,8 +19,8 @@
  */
 
 @theme inline {
-  --font-display: var(--font-display);
-  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+  --font-sans: var(--font-text);
   --color-surface: var(--surface);
   --color-grid-line: var(--grid-line);
   --radius-sm: calc(var(--radius) - 4px);
@@ -94,8 +94,8 @@
     transparent 70%
   );
   --shadow-lift: 0 24px 60px -30px color-mix(in oklab, var(--primary) 45%, transparent);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-text: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -154,5 +154,32 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-text);
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+}
+
+@utility grid-backdrop {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent 75%);
+}
+
+@utility hero-glow {
+  background-image: var(--gradient-hero);
 }
