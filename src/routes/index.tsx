@@ -173,8 +173,9 @@ function Index() {
             <SectionHeading index="02 / Experience" title="Work experience" />
             <div className="space-y-px bg-border">
               {EXPERIENCE.map((job) => (
-                <article
+                <Reveal
                   key={job.company}
+                  as="article"
                   className="grid gap-6 bg-background py-10 md:grid-cols-[280px_1fr]"
                 >
                   <div>
@@ -192,7 +193,7 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                </article>
+                </Reveal>
               ))}
             </div>
             <div className="mt-12 grid gap-8 border-t border-border pt-10 sm:grid-cols-2">
@@ -230,8 +231,13 @@ function Index() {
               lead="Systems built and shipped inside live operations — not demos."
             />
             <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
-              {WORKS.map((w) => (
-                <article key={w.title} className="flex flex-col bg-surface p-7">
+              {WORKS.map((w, i) => (
+                <Reveal
+                  key={w.title}
+                  as="article"
+                  delay={(i % 3) * 90}
+                  className="flex flex-col bg-surface p-7 transition-colors hover:bg-card"
+                >
                   <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
                     {w.context}
                   </p>
@@ -246,7 +252,7 @@ function Index() {
                       </span>
                     ))}
                   </div>
-                </article>
+                </Reveal>
               ))}
             </div>
           </div>
