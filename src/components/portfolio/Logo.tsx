@@ -6,7 +6,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
       </span>
       {!compact && (
         <span className="font-display text-sm font-medium tracking-tight text-foreground">
-          Kenneth Louie <span className="text-primary">Cleofe</span>
+          Ken <span className="text-primary">Cleofe</span>
         </span>
       )}
     </a>
