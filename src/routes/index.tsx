@@ -103,13 +103,15 @@ function Index() {
                 href={PROFILE.calendly}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] transition-opacity hover:opacity-90"
+                onMouseDown={ripple}
+                className="press ripple-host rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] hover:opacity-90"
               >
                 Book a discovery call
               </a>
               <a
                 href="#work"
-                className="rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+                onMouseDown={ripple}
+                className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
               >
                 See previous work
               </a>
@@ -120,11 +122,11 @@ function Index() {
                 ["7", "Certifications"],
                 ["50–70", "Staff managed"],
                 ["4", "Automation platforms"],
-              ].map(([value, label]) => (
-                <div key={label} className="bg-surface px-5 py-6">
+              ].map(([value, label], i) => (
+                <Reveal key={label} delay={i * 80} className="bg-surface px-5 py-6">
                   <dt className="font-display text-2xl font-semibold text-primary">{value}</dt>
                   <dd className="mt-1 text-xs text-muted-foreground">{label}</dd>
-                </div>
+                </Reveal>
               ))}
             </dl>
           </div>
@@ -139,8 +141,13 @@ function Index() {
               lead="Practical automation work, scoped around where the manual effort actually is."
             />
             <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
-              {SERVICES.map((s) => (
-                <article key={s.no} className="group bg-surface p-8 transition-colors hover:bg-card">
+              {SERVICES.map((s, i) => (
+                <Reveal
+                  key={s.no}
+                  as="article"
+                  delay={i * 90}
+                  className="group bg-surface p-8 transition-colors hover:bg-card"
+                >
                   <span className="font-mono text-xs text-primary">{s.no}</span>
                   <h3 className="mt-4 text-xl font-semibold">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
@@ -154,7 +161,7 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                </article>
+                </Reveal>
               ))}
             </div>
           </div>
