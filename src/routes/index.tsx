@@ -5,14 +5,13 @@ import { Reveal } from "@/components/portfolio/Reveal";
 import { useRipple } from "@/components/portfolio/Ripple";
 import { LogoMarquee } from "@/components/portfolio/LogoMarquee";
 import { PortfolioFolders } from "@/components/portfolio/PortfolioFolders";
+import portrait from "@/assets/ken-cleofe-portrait.png.asset.json";
 import {
   CERTIFICATIONS,
   EDUCATION,
   EXPERIENCE,
   PROFILE,
   SERVICES,
-
-  WORK_SETUP,
 } from "@/components/portfolio/data";
 
 const TITLE = "Kenneth Louie Cleofe — AI Automation & Operations Specialist";
@@ -33,9 +32,9 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "Services", href: "#services" },
-  { label: "Experience", href: "#experience" },
-  { label: "Portfolio", href: "#portfolio" },
   { label: "Stack", href: "#stack" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -89,88 +88,126 @@ function Index() {
           <div className="pointer-events-none absolute inset-0 grid-backdrop opacity-60" />
           <div className="pointer-events-none absolute inset-0 hero-glow" />
           <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
-              {PROFILE.role}
-            </p>
-            <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.05] sm:text-6xl">
-              I turn manual operations into systems that run themselves.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              {PROFILE.summary}
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href={PROFILE.calendly}
-                target="_blank"
-                rel="noreferrer"
-                onMouseDown={ripple}
-                className="press ripple-host rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] hover:opacity-90"
-              >
-                Book a discovery call
-              </a>
-              <a
-                href="#portfolio"
-                onMouseDown={ripple}
-                className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
-              >
-                See previous work
-              </a>
+            <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="min-w-0">
+                <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
+                  {PROFILE.role}
+                </p>
+                <h1 className="mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl xl:text-6xl">
+                  I turn manual operations into systems that run themselves.
+                </h1>
+                <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                  {PROFILE.summary}
+                </p>
+                <div className="mt-10 flex flex-wrap items-center gap-4">
+                  <a
+                    href={PROFILE.calendly}
+                    target="_blank"
+                    rel="noreferrer"
+                    onMouseDown={ripple}
+                    className="press ripple-host rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] hover:opacity-90"
+                  >
+                    Book a discovery call
+                  </a>
+                  <a
+                    href="#portfolio"
+                    onMouseDown={ripple}
+                    className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
+                  >
+                    See previous work
+                  </a>
+                </div>
+              </div>
+
+              <Reveal className="relative mx-auto w-full max-w-sm lg:max-w-none">
+                <div className="pointer-events-none absolute -inset-6 rounded-full bg-primary/15 blur-3xl" />
+                <div className="relative overflow-hidden rounded-sm border border-border bg-surface">
+                  <img
+                    src={portrait.url}
+                    alt="Portrait of Kenneth Louie Cleofe, AI automation and operations specialist"
+                    width={1349}
+                    height={1155}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5">
+                    <p className="font-display text-sm font-semibold text-foreground">
+                      {PROFILE.name}
+                    </p>
+                    <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                      {PROFILE.location}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
             </div>
-            <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-4">
-              {[
-                ["8+ yrs", "Operations experience"],
-                ["7", "Certifications"],
-                ["50–70", "Staff managed"],
-                ["4", "Automation platforms"],
-              ].map(([value, label], i) => (
-                <Reveal key={label} delay={i * 80} className="bg-surface px-5 py-6">
-                  <dt className="font-display text-2xl font-semibold text-primary">{value}</dt>
-                  <dd className="mt-1 text-xs text-muted-foreground">{label}</dd>
-                </Reveal>
-              ))}
-            </dl>
+
+            {/* Services — compact */}
+            <div id="services" className="mt-20 scroll-mt-24">
+              <div className="flex items-baseline justify-between gap-4 border-b border-border pb-4">
+                <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
+                  Services
+                </h2>
+                <p className="text-xs text-muted-foreground">What I build</p>
+              </div>
+              <div className="mt-px grid gap-px overflow-hidden bg-border sm:grid-cols-2 lg:grid-cols-4">
+                {SERVICES.map((s, i) => (
+                  <Reveal
+                    key={s.no}
+                    as="article"
+                    delay={i * 80}
+                    className="bg-surface p-6 transition-colors hover:bg-card"
+                  >
+                    <span className="font-mono text-xs text-primary">{s.no}</span>
+                    <h3 className="mt-3 text-sm font-semibold">{s.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.body}</p>
+                    <ul className="mt-4 flex flex-wrap gap-1.5">
+                      {s.points.map((p) => (
+                        <li
+                          key={p}
+                          className="rounded-sm border border-border px-2 py-0.5 text-[10px] text-muted-foreground"
+                        >
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Services */}
-        <section id="services" className="border-b border-border">
+        {/* Stack */}
+        <section id="stack" className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
-              index="01 / Services"
-              title="What I build"
-              lead="Practical automation work, scoped around where the manual effort actually is."
+              index="01 / Stack"
+              title="Software & platforms I use"
+              lead="The tools I build in daily."
             />
-            <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
-              {SERVICES.map((s, i) => (
-                <Reveal
-                  key={s.no}
-                  as="article"
-                  delay={i * 90}
-                  className="group bg-surface p-8 transition-colors hover:bg-card"
-                >
-                  <span className="font-mono text-xs text-primary">{s.no}</span>
-                  <h3 className="mt-4 text-xl font-semibold">{s.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                  <ul className="mt-6 flex flex-wrap gap-2">
-                    {s.points.map((p) => (
-                      <li
-                        key={p}
-                        className="rounded-sm border border-border px-2.5 py-1 text-xs text-muted-foreground"
-                      >
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal className="rounded-sm border border-border bg-surface py-6">
+              <LogoMarquee />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Portfolio */}
+        <section id="portfolio" className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <SectionHeading
+              index="02 / Portfolio"
+              title="Portfolio"
+              lead="Automations built and shipped inside live operations. Open a folder to see the build, the tools behind it and the value it delivers."
+            />
+            <PortfolioFolders />
           </div>
         </section>
 
         {/* Experience */}
         <section id="experience" className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-24">
-            <SectionHeading index="02 / Experience" title="Work experience" />
+            <SectionHeading index="03 / Experience" title="Work experience" />
             <div className="space-y-px bg-border">
               {EXPERIENCE.map((job) => (
                 <Reveal
@@ -222,49 +259,11 @@ function Index() {
           </div>
         </section>
 
-        {/* Portfolio */}
-        <section id="portfolio" className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-24">
-            <SectionHeading
-              index="03 / Portfolio"
-              title="Portfolio"
-              lead="Automations built and shipped inside live operations. Open a folder to see the build, the tools behind it and the value it delivers."
-            />
-            <PortfolioFolders />
-          </div>
-        </section>
-
-        {/* Stack */}
-        <section id="stack" className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-24">
-            <SectionHeading
-              index="04 / Stack"
-              title="Software & platforms I use"
-              lead="The tools I build in daily, plus the setup that keeps me online."
-            />
-            <Reveal className="rounded-sm border border-border bg-surface py-6">
-              <LogoMarquee />
-            </Reveal>
-            <Reveal className="mt-14 rounded-sm border border-border bg-surface p-8">
-              <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
-                Work setup
-              </h3>
-              <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {WORK_SETUP.map((s) => (
-                  <li key={s} className="text-sm text-muted-foreground">
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-        </section>
-
         {/* Contact */}
         <section id="contact">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
-              index="05 / Contact"
+              index="04 / Contact"
               title="Book a discovery call"
               lead="Pick a time that works for you and tell me where the manual work is piling up."
             />
