@@ -5,6 +5,14 @@ import { Reveal } from "@/components/portfolio/Reveal";
 import { useRipple } from "@/components/portfolio/Ripple";
 import { LogoMarquee } from "@/components/portfolio/LogoMarquee";
 import { PortfolioFolders } from "@/components/portfolio/PortfolioFolders";
+import {
+  Search,
+  GitBranch,
+  Wrench,
+  ClipboardCheck,
+  Rocket,
+  Headphones,
+} from "lucide-react";
 import portrait from "@/assets/ken-cleofe-portrait.png.asset.json";
 import {
   CERTIFICATIONS,
@@ -36,6 +44,39 @@ const NAV = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
+];
+
+const PROCESS_STEPS = [
+  {
+    icon: Search,
+    label: "Discovery",
+    desc: "Understand your workflows, pain points, and goals.",
+  },
+  {
+    icon: GitBranch,
+    label: "Process Mapping",
+    desc: "Map every step so nothing is missed before building.",
+  },
+  {
+    icon: Wrench,
+    label: "Build",
+    desc: "Connect apps and assemble automations that fit your stack.",
+  },
+  {
+    icon: ClipboardCheck,
+    label: "Test",
+    desc: "Run real scenarios, catch edge cases, and refine.",
+  },
+  {
+    icon: Rocket,
+    label: "Launch",
+    desc: "Deploy live with monitoring and handover documentation.",
+  },
+  {
+    icon: Headphones,
+    label: "Support",
+    desc: "Stay available for tweaks, fixes, and scaling.",
+  },
 ];
 
 function SectionHeading({ index, title, lead }: { index: string; title: string; lead?: string }) {
@@ -97,7 +138,7 @@ function Index() {
                   I turn manual operations into systems that run themselves.
                 </h1>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  {PROFILE.summary}
+                  I help businesses eliminate repetitive work by building AI-powered automations that connect their apps, streamline operations, and free teams to focus on higher-value work. From CRM workflows and AI agents to custom integrations, I build reliable systems that save time, reduce manual effort, and scale with your business.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <a
@@ -171,6 +212,50 @@ function Index() {
                         </li>
                       ))}
                     </ul>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How I Work */}
+        <section id="how-i-work" className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-20">
+            <Reveal className="mb-12 text-center">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
+                How I Work
+              </span>
+              <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
+                From first call to running automation
+              </h2>
+            </Reveal>
+            <div className="relative">
+              <div className="absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
+              <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
+                {PROCESS_STEPS.map((step, i) => (
+                  <Reveal
+                    key={step.label}
+                    as="article"
+                    delay={i * 100}
+                    className="group relative text-center"
+                  >
+                    <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-border bg-surface transition-all duration-300 group-hover:-translate-y-1 group-hover:border-primary group-hover:bg-primary/10 group-hover:shadow-[var(--shadow-lift)]">
+                      <step.icon
+                        size={20}
+                        strokeWidth={1.5}
+                        className="text-muted-foreground transition-colors group-hover:text-primary"
+                      />
+                    </div>
+                    <h3 className="mt-4 text-sm font-semibold">{step.label}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      {step.desc}
+                    </p>
+                    {i < PROCESS_STEPS.length - 1 && (
+                      <span className="absolute right-0 top-8 hidden -translate-y-1/2 text-muted-foreground lg:block">
+                        →
+                      </span>
+                    )}
                   </Reveal>
                 ))}
               </div>
