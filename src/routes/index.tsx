@@ -5,14 +5,13 @@ import { Reveal } from "@/components/portfolio/Reveal";
 import { useRipple } from "@/components/portfolio/Ripple";
 import { LogoMarquee } from "@/components/portfolio/LogoMarquee";
 import { PortfolioFolders } from "@/components/portfolio/PortfolioFolders";
+import portrait from "@/assets/ken-cleofe-portrait.png.asset.json";
 import {
   CERTIFICATIONS,
   EDUCATION,
   EXPERIENCE,
   PROFILE,
   SERVICES,
-
-  WORK_SETUP,
 } from "@/components/portfolio/data";
 
 const TITLE = "Kenneth Louie Cleofe — AI Automation & Operations Specialist";
@@ -33,9 +32,9 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "Services", href: "#services" },
-  { label: "Experience", href: "#experience" },
-  { label: "Portfolio", href: "#portfolio" },
   { label: "Stack", href: "#stack" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
