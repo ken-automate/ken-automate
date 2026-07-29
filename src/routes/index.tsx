@@ -219,6 +219,50 @@ function Index() {
           </div>
         </section>
 
+        {/* How I Work */}
+        <section id="how-i-work" className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-20">
+            <Reveal className="mb-12 text-center">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
+                How I Work
+              </span>
+              <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
+                From first call to running automation
+              </h2>
+            </Reveal>
+            <div className="relative">
+              <div className="absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
+              <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
+                {PROCESS_STEPS.map((step, i) => (
+                  <Reveal
+                    key={step.label}
+                    as="article"
+                    delay={i * 100}
+                    className="group relative text-center"
+                  >
+                    <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-border bg-surface transition-all duration-300 group-hover:-translate-y-1 group-hover:border-primary group-hover:bg-primary/10 group-hover:shadow-[var(--shadow-lift)]">
+                      <step.icon
+                        size={20}
+                        strokeWidth={1.5}
+                        className="text-muted-foreground transition-colors group-hover:text-primary"
+                      />
+                    </div>
+                    <h3 className="mt-4 text-sm font-semibold">{step.label}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      {step.desc}
+                    </p>
+                    {i < PROCESS_STEPS.length - 1 && (
+                      <span className="absolute right-0 top-8 hidden -translate-y-1/2 text-muted-foreground lg:block">
+                        →
+                      </span>
+                    )}
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Stack */}
         <section id="stack" className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-24">
