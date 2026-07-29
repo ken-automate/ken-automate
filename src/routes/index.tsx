@@ -5,6 +5,14 @@ import { Reveal } from "@/components/portfolio/Reveal";
 import { useRipple } from "@/components/portfolio/Ripple";
 import { LogoMarquee } from "@/components/portfolio/LogoMarquee";
 import { PortfolioFolders } from "@/components/portfolio/PortfolioFolders";
+import {
+  Search,
+  GitBranch,
+  Wrench,
+  ClipboardCheck,
+  Rocket,
+  Headphones,
+} from "lucide-react";
 import portrait from "@/assets/ken-cleofe-portrait.png.asset.json";
 import {
   CERTIFICATIONS,
@@ -36,6 +44,39 @@ const NAV = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
+];
+
+const PROCESS_STEPS = [
+  {
+    icon: Search,
+    label: "Discovery",
+    desc: "Understand your workflows, pain points, and goals.",
+  },
+  {
+    icon: GitBranch,
+    label: "Process Mapping",
+    desc: "Map every step so nothing is missed before building.",
+  },
+  {
+    icon: Wrench,
+    label: "Build",
+    desc: "Connect apps and assemble automations that fit your stack.",
+  },
+  {
+    icon: ClipboardCheck,
+    label: "Test",
+    desc: "Run real scenarios, catch edge cases, and refine.",
+  },
+  {
+    icon: Rocket,
+    label: "Launch",
+    desc: "Deploy live with monitoring and handover documentation.",
+  },
+  {
+    icon: Headphones,
+    label: "Support",
+    desc: "Stay available for tweaks, fixes, and scaling.",
+  },
 ];
 
 function SectionHeading({ index, title, lead }: { index: string; title: string; lead?: string }) {
@@ -97,7 +138,7 @@ function Index() {
                   I turn manual operations into systems that run themselves.
                 </h1>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  {PROFILE.summary}
+                  I help businesses eliminate repetitive work by building AI-powered automations that connect their apps, streamline operations, and free teams to focus on higher-value work. From CRM workflows and AI agents to custom integrations, I build reliable systems that save time, reduce manual effort, and scale with your business.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <a
