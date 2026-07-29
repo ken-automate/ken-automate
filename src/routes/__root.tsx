@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kenneth Louie Cleofe — AI Automation Specialist" },
+      { title: "Ken Cleofe — AI Automation Specialist" },
       {
         name: "description",
         content:
           "AI automation and operations specialist building Zapier, Make, n8n and GoHighLevel systems that remove manual work.",
       },
       { name: "author", content: "Kenneth Louie Cleofe" },
-      { property: "og:title", content: "Kenneth Louie Cleofe — AI Automation Specialist" },
+      { property: "og:title", content: "Ken Cleofe — AI Automation Specialist" },
       {
         property: "og:description",
         content:
@@ -93,6 +93,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Ken Cleofe — AI Automation Specialist" },
+      { name: "twitter:description", content: "AI automation and operations specialist building Zapier, Make, n8n and GoHighLevel systems that remove manual work." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/20dc0338-f0f2-4983-842d-62a7eb24c90b/id-preview-8f965245--35228c13-fa6c-4beb-8c19-cb9bdd539325.lovable.app-1785286266485.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/20dc0338-f0f2-4983-842d-62a7eb24c90b/id-preview-8f965245--35228c13-fa6c-4beb-8c19-cb9bdd539325.lovable.app-1785286266485.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
