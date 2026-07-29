@@ -259,49 +259,11 @@ function Index() {
           </div>
         </section>
 
-        {/* Portfolio */}
-        <section id="portfolio" className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-24">
-            <SectionHeading
-              index="03 / Portfolio"
-              title="Portfolio"
-              lead="Automations built and shipped inside live operations. Open a folder to see the build, the tools behind it and the value it delivers."
-            />
-            <PortfolioFolders />
-          </div>
-        </section>
-
-        {/* Stack */}
-        <section id="stack" className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-24">
-            <SectionHeading
-              index="04 / Stack"
-              title="Software & platforms I use"
-              lead="The tools I build in daily, plus the setup that keeps me online."
-            />
-            <Reveal className="rounded-sm border border-border bg-surface py-6">
-              <LogoMarquee />
-            </Reveal>
-            <Reveal className="mt-14 rounded-sm border border-border bg-surface p-8">
-              <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-primary">
-                Work setup
-              </h3>
-              <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {WORK_SETUP.map((s) => (
-                  <li key={s} className="text-sm text-muted-foreground">
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          </div>
-        </section>
-
         {/* Contact */}
         <section id="contact">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
-              index="05 / Contact"
+              index="04 / Contact"
               title="Book a discovery call"
               lead="Pick a time that works for you and tell me where the manual work is piling up."
             />
