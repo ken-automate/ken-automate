@@ -1,13 +1,13 @@
-import agentFacebook from "@/assets/AI_Agent_for_Facebook.png.asset.json";
-import jobScraper from "@/assets/AI_Job_Scraper_Resume_Optimizer.png.asset.json";
-import receptionist from "@/assets/AI_Receptionist.png.asset.json";
-import repurposing from "@/assets/AI_Repurposing.png.asset.json";
-import asanaLeads from "@/assets/Asana_CRM_Lead_Engagement_Workflow-2.png.asset.json";
-import xeroAsana from "@/assets/Asana_CRM_Lead_Engagement_Workflow.png.asset.json";
-import gmailDrive from "@/assets/Auto_Sort_Gmail_Attachments_on_Drive.png.asset.json";
-import leadsEnrichment from "@/assets/Automated_Leads_Enrichment.png.asset.json";
-import shortsCreator from "@/assets/Automated_Youtube_Shorts_and_Facebook_Reels_Creator.webp.asset.json";
-import ragAgent from "@/assets/RAG.webp.asset.json";
+const agentFacebook = { url: "/assets/AI_Agent_for_Facebook.png" };
+const jobScraper = { url: "/assets/AI_Job_Scraper_Resume_Optimizer.png" };
+const receptionist = { url: "/assets/AI_Receptionist.png" };
+const repurposing = { url: "/assets/AI_Repurposing.png" };
+const asanaLeads = { url: "/assets/Asana_CRM_Lead_Engagement_Workflow-2.png" };
+const xeroAsana = { url: "/assets/Asana_CRM_Lead_Engagement_Workflow.png" };
+const gmailDrive = { url: "/assets/Auto_Sort_Gmail_Attachments_on_Drive.png" };
+const leadsEnrichment = { url: "/assets/Automated_Leads_Enrichment.png" };
+const shortsCreator = { url: "/assets/Automated_Youtube_Shorts_and_Facebook_Reels_Creator.webp" };
+const ragAgent = { url: "/assets/RAG.webp" };
 
 export type PortfolioItem = {
   id: string;
