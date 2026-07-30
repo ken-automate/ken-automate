@@ -13,8 +13,8 @@ import {
   Rocket,
   Headphones,
 } from "lucide-react";
-import portrait from "@/assets/ken-cleofe-portrait.png.asset.json";
-import resume from "@/assets/kenneth-cleofe-resume.pdf.asset.json";
+const portrait = { url: "/assets/ken-cleofe-portrait.png" };
+const resume = { url: "/assets/Kenneth-Cleofe-Resume.pdf" };
 
 import {
   CERTIFICATIONS,
