@@ -14,6 +14,8 @@ import {
   Headphones,
 } from "lucide-react";
 import portrait from "@/assets/ken-cleofe-portrait.png.asset.json";
+import resume from "@/assets/kenneth-cleofe-resume.pdf.asset.json";
+
 import {
   CERTIFICATIONS,
   EDUCATION,
@@ -156,6 +158,14 @@ function Index() {
                     className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
                   >
                     See previous work
+                  </a>
+                  <a
+                    href={resume.url}
+                    download="Kenneth-Cleofe-Resume.pdf"
+                    onMouseDown={ripple}
+                    className="press ripple-host rounded-sm border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary"
+                  >
+                    Download Resume
                   </a>
                 </div>
               </div>
@@ -369,7 +379,7 @@ function Index() {
                     value: PROFILE.phone,
                     href: `tel:${PROFILE.phone.replace(/\s/g, "")}`,
                   },
-                  { label: "LinkedIn", value: "kenneth-cleofe", href: PROFILE.linkedin },
+                  { label: "LinkedIn", value: "www.linkedin.com/in/kenneth-cleofe-72a8bb119", href: PROFILE.linkedin },
                   { label: "Location", value: PROFILE.location },
                 ].map((c) => (
                   <div key={c.label} className="border-t border-border pt-4">
