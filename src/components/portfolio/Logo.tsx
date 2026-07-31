@@ -15,7 +15,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
           width="56"
           height="56"
           fill="none"
-          stroke="hsl(var(--primary))"
+          stroke="var(--primary)"
           strokeWidth="3"
         />
         {/* K */}
@@ -28,7 +28,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
           className="kc-c"
           d="M46 22 A11 11 0 1 0 46 42"
           fill="none"
-          stroke="hsl(var(--primary))"
+          stroke="var(--primary)"
           strokeWidth="4.5"
           strokeLinecap="square"
         />
