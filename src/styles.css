@@ -390,3 +390,72 @@
     transition: none;
   }
 }
+
+/* ---- KC monogram logo ---- */
+.kc-logo {
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.25s ease;
+}
+.kc-logo:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+@keyframes kc-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes kc-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes kc-slide {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.kc-square {
+  stroke-dasharray: 232;
+  stroke-dashoffset: 232;
+  animation: kc-draw 0.35s ease-out forwards;
+}
+.kc-k {
+  opacity: 0;
+  animation: kc-fade 0.2s ease-out 0.3s forwards;
+}
+.kc-c {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kc-slide 0.25s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+.kc-text {
+  opacity: 0;
+  animation: kc-fade 0.3s ease-out 0.65s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kc-square,
+  .kc-k,
+  .kc-c,
+  .kc-text {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  .kc-logo:hover {
+    transform: none;
+  }
+}
