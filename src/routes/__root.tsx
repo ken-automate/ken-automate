@@ -93,8 +93,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Ken Cleofe — AI Automation Specialist" },
       { name: "twitter:description", content: "AI automation and operations specialist building Zapier, Make, n8n and GoHighLevel systems that remove manual work." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/20dc0338-f0f2-4983-842d-62a7eb24c90b/id-preview-8f965245--35228c13-fa6c-4beb-8c19-cb9bdd539325.lovable.app-1785286266485.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/20dc0338-f0f2-4983-842d-62a7eb24c90b/id-preview-8f965245--35228c13-fa6c-4beb-8c19-cb9bdd539325.lovable.app-1785286266485.png" },
+      { property: "og:image", content: "https://ken-automate.lovable.app/brand/og-image.png" },
+      { name: "twitter:image", content: "https://ken-automate.lovable.app/brand/og-image.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
