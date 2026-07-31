@@ -20,13 +20,13 @@ export function Logo({ compact = false }: { compact?: boolean }) {
         />
         {/* K */}
         <g className="kc-k" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="square">
-          <path d="M20 18 V46" />
-          <path d="M34 18 L21.5 32 L34 46" />
+          <path d="M19 18 V46" />
+          <path d="M30 18 L20.5 32 L30 46" />
         </g>
         {/* C */}
         <path
           className="kc-c"
-          d="M46 22 A11 11 0 1 0 46 42"
+          d="M50 23 A10 10 0 1 0 50 41"
           fill="none"
           stroke="var(--primary)"
           strokeWidth="4.5"
