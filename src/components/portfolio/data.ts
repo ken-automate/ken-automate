@@ -4,7 +4,7 @@ export const PROFILE = {
   email: "kencleofe.automation@gmail.com",
   phone: "+63 968 310 4578",
   location: "Marikina City, Philippines",
-  linkedin: "https://linkedin.com/in/kenneth-cleofe-72a8bb119",
+  linkedin: "https://www.linkedin.com/in/ken-automate/",
   calendly:
     "https://calendly.com/ken-automate/book-a-discovery-call?back=1&month=2026-07",
   summary:
