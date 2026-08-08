@@ -380,7 +380,7 @@ function Index() {
                     value: PROFILE.phone,
                     href: `tel:${PROFILE.phone.replace(/\s/g, "")}`,
                   },
-                  { label: "LinkedIn", value: "www.linkedin.com/in/kenneth-cleofe-72a8bb119", href: PROFILE.linkedin },
+                  { label: "LinkedIn", value: "www.linkedin.com/in/ken-automate/", href: PROFILE.linkedin },
                   { label: "Location", value: PROFILE.location },
                 ].map((c) => (
                   <div key={c.label} className="border-t border-border pt-4">
