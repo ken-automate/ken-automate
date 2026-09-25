@@ -67,13 +67,16 @@ export function PortfolioFolders() {
                 </span>
                 <DialogTitle className="text-xl font-semibold sm:text-2xl">{active.title}</DialogTitle>
               </DialogHeader>
-              <div className="border-b border-border bg-background p-4 sm:p-6">
-                <img
-                  src={active.image}
-                  alt={active.alt}
-                  loading="lazy"
-                  className="w-full rounded-sm border border-border"
-                />
+              <div className="space-y-4 border-b border-border bg-background p-4 sm:p-6">
+                {[active.image, ...(active.gallery ?? [])].map((src, i) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt={i === 0 ? active.alt : `${active.title} screenshot ${i + 1}`}
+                    loading="lazy"
+                    className="w-full rounded-sm border border-border"
+                  />
+                ))}
               </div>
               <div className="grid gap-6 p-6 md:grid-cols-2">
                 <Detail label="What this shows">{active.shows}</Detail>

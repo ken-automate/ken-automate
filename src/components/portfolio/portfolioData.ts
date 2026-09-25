@@ -15,6 +15,7 @@ export type PortfolioItem = {
   category: string;
   image: string;
   alt: string;
+  gallery?: string[];
   shows: string;
   build: string;
   tools: string[];
@@ -182,5 +183,38 @@ export const PORTFOLIO: PortfolioItem[] = [
       "Internal answers lived in scattered documents, and any AI assistant built on them went stale the moment a file was edited.",
     result:
       "Staff get grounded answers from company documents through chat, and the knowledge base updates itself on every file create, edit or delete — no re-indexing task and no outdated responses.",
+  },
+  {
+    id: "golf-monitor",
+    title: "Golf Club Competitor Price & Inventory Monitor",
+    category: "Market Intelligence · Python + n8n",
+    image: "/assets/Golf_Competitor_Monitor.png",
+    alt: "Weekly competitor report showing clubs tracked, clubs sold, turnover and price-band sell-through by site",
+    shows:
+      "A multi-site scraping system tracking golf club listings across 5 competitor marketplaces, standardizing every listing into Brand, Model, Club Type, Build Year, Condition and Price, and tracking which listings sell versus stay live.",
+    build:
+      "Python scrapers (including Playwright for JS-rendered sites) covering 5 AU golf retailers, with sold-vs-new tracking by monitoring listing URLs between scrape runs. A self-hosted n8n workflow runs on a weekly schedule and pushes Current Listings, New Listings, Sold Items and a cross-site Model Synthesis rollup straight into Google Sheets — no manual report building.",
+    tools: ["Python", "Playwright", "n8n", "Google Sheets", "eBay API"],
+    problem:
+      "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock — slow, inconsistent, and easy to miss a good deal.",
+    result:
+      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap — turning hours of manual browsing into a scheduled system.",
+  },
+  {
+    id: "proof-flow",
+    title: "Proof-Flow Quoting System Rebuild",
+    category: "Quoting System · Django",
+    image: "/assets/ProofFlow_Dashboard.png",
+    gallery: ["/assets/ProofFlow_Proposals.png", "/assets/ProofFlow_Edit_Quote.png"],
+    alt: "Quoting platform admin dashboard with proposal stats, charts and client activity",
+    shows:
+      "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page — from the internal dashboard down to the customer's quote approval screen.",
+    build:
+      "A Django rebuild covering the full admin side (dynamic drag-and-drop quote editor, client management, a template hub with pricing-list import) and the customer-facing quote flow (Introduction, About, Product Spotlight, and an interactive Quote screen with itemized pricing and Approve/Amend/Reject actions).",
+    tools: ["Django", "Python", "GitHub", "Railway"],
+    problem:
+      "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
+    result:
+      "A pixel-matched, fully functional quoting system now used in live client operations, replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
   },
 ];
