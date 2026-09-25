@@ -202,7 +202,7 @@ export const PORTFOLIO: PortfolioItem[] = [
   },
   {
     id: "proof-flow",
-    title: "Proof-Flow Quoting System Rebuild",
+    title: "Quoting App Rebuild",
     category: "Quoting System · Django",
     image: "/assets/ProofFlow_Dashboard.png",
     gallery: ["/assets/ProofFlow_Proposals.png", "/assets/ProofFlow_Edit_Quote.png"],
@@ -211,7 +211,7 @@ export const PORTFOLIO: PortfolioItem[] = [
       "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page — from the internal dashboard down to the customer's quote approval screen.",
     build:
       "A Django rebuild covering the full admin side (dynamic drag-and-drop quote editor, client management, a template hub with pricing-list import) and the customer-facing quote flow (Introduction, About, Product Spotlight, and an interactive Quote screen with itemized pricing and Approve/Amend/Reject actions).",
-    tools: ["Django", "Python", "GitHub", "Railway"],
+    tools: ["Django", "Python", "HTML", "Figma", "GitHub", "Railway"],
     problem:
       "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
     result:
