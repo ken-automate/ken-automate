@@ -141,7 +141,7 @@ function Index() {
                   I turn manual operations into systems that run themselves.
                 </h1>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  I help businesses eliminate repetitive work by building AI-powered automations that connect their apps, streamline operations, and free teams to focus on higher-value work. From CRM workflows and AI agents to custom integrations, I build reliable systems that save time, reduce manual effort, and scale with your business.
+                  I help businesses eliminate repetitive work by building AI-powered automations that connect their apps, gather the data they need, and streamline operations — freeing teams to focus on higher-value work. From CRM workflows and AI agents to custom integrations and full custom applications, I build reliable systems that save time, reduce manual effort, and scale with your business.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <a
