@@ -1,0 +1,27 @@
+# Kenneth Louie Cleofe (Ken Cleofe)
+
+AI Automation & Operations Specialist based in Marikina City, Philippines.
+
+## What I do
+I build systems that eliminate manual, repetitive operational work by connecting business apps, automating CRM workflows, deploying AI agents, and building custom applications when off-the-shelf tools aren't enough.
+
+## Services
+- Workflow Automation Builds (Zapier, Make, n8n)
+- CRM Automation & Integration (GoHighLevel, HubSpot)
+- AI Tool Implementation (ChatGPT, Claude, prompt engineering)
+- Ops Systems & SOPs (documentation, handover, training)
+
+## Notable projects
+- Proof-Flow: a full custom Django quoting application rebuild for a signage company, covering admin dashboard and client-facing quote approval
+- Golf Club Competitor Price & Inventory Monitor: a Python + Playwright web scraping system tracking competitor pricing across 5 sites, automated into scheduled Google Sheets reports via n8n
+- AI Voice Receptionist & Booking System (n8n + Vapi)
+- RAG Knowledge Agent with Live Sync (n8n)
+- AI Agent for Facebook Messenger (n8n)
+
+## Background
+Former Operations Manager (Summit Glazing Solutions) and Department Manager (SM Retail), with a background in banking/financial services before transitioning into automation and AI tooling.
+
+## Contact
+Email: kencleofe.automation@gmail.com
+LinkedIn: www.linkedin.com/in/ken-automate/
+Portfolio: https://ken-automate.onrender.com
