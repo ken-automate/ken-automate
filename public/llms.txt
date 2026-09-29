@@ -11,6 +11,12 @@ I build systems that eliminate manual, repetitive operational work by connecting
 - AI Tool Implementation (ChatGPT, Claude, prompt engineering)
 - Ops Systems & SOPs (documentation, handover, training)
 
+## Industries served
+- Large-scale printing
+- Wealth & wellness
+- Real estate
+- Retail and banking/financial services
+
 ## Notable projects
 - Quoting App Rebuild: a full custom Django quoting application for a large-scale printing business, covering admin dashboard and client-facing quote approval
 - Golf Club Competitor Price & Inventory Monitor: a Python + Playwright web scraping system tracking competitor pricing across 5 sites, automated into scheduled Google Sheets reports via n8n
