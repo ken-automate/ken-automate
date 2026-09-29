@@ -82,6 +82,33 @@ const PROCESS_STEPS = [
   },
 ];
 
+const FAQS = [
+  {
+    q: "What does Ken Cleofe do?",
+    a: "Ken is an AI Automation & Operations Specialist who builds systems that eliminate manual, repetitive work — connecting business apps, automating CRM workflows, and deploying AI agents so teams can focus on higher-value tasks.",
+  },
+  {
+    q: "What automation tools does he specialize in?",
+    a: "Zapier, Make, and n8n for workflow automation, plus GoHighLevel and HubSpot for CRM pipelines, and ChatGPT/Claude for AI-powered operational workflows.",
+  },
+  {
+    q: "Has he built custom web applications?",
+    a: "Yes — including a full Django-based quoting system rebuild (Proof-Flow) with both an admin dashboard and a client-facing quote approval flow, matched pixel-for-pixel to design mockups.",
+  },
+  {
+    q: "Can he build data-gathering or market research systems?",
+    a: "Yes — he's built Python-based web scraping systems (using Playwright and BeautifulSoup) that monitor competitor pricing and inventory across multiple sites, feeding automated reports into Google Sheets on a schedule.",
+  },
+  {
+    q: "What industries has he worked with?",
+    a: "Signage and printing (Builders Signs), wellness/spa services (Majesty Day Spa), real estate (Keller Williams), and retail/banking through his prior operations management career.",
+  },
+  {
+    q: "Where is he based and is he open to remote work?",
+    a: "Ken is based in Marikina City, Philippines, and works with clients remotely.",
+  },
+];
+
 function SectionHeading({ index, title, lead }: { index: string; title: string; lead?: string }) {
   return (
     <Reveal className="mb-12 max-w-2xl">
@@ -355,11 +382,35 @@ function Index() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section id="faq" className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <SectionHeading
+              index="04 / FAQ"
+              title="Frequently asked questions"
+              lead="Quick answers about what I do, the tools I build with, and how I work."
+            />
+            <div className="grid gap-x-12 gap-y-10 lg:grid-cols-2">
+              {FAQS.map((f, i) => (
+                <Reveal key={f.q} as="article" delay={i * 60}>
+                  <h3 className="text-base font-semibold">
+                    <span className="mr-3 font-mono text-xs text-primary">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {f.q}
+                  </h3>
+                  <p className="mt-3 pl-8 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
         <section id="contact">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
-              index="04 / Contact"
+              index="05 / Contact"
               title="Book a discovery call"
               lead="Pick a time that works for you and tell me where the manual work is piling up."
             />
