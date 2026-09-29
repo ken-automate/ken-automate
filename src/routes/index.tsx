@@ -93,7 +93,7 @@ const FAQS = [
   },
   {
     q: "Has he built custom web applications?",
-    a: "Yes — including a full Django-based quoting system rebuild (Proof-Flow) with both an admin dashboard and a client-facing quote approval flow, matched pixel-for-pixel to design mockups.",
+    a: "Yes — including a full Django-based quoting application rebuild for a large-scale printing business, with both an admin dashboard and a client-facing quote approval flow, matched pixel-for-pixel to design mockups.",
   },
   {
     q: "Can he build data-gathering or market research systems?",
@@ -101,7 +101,7 @@ const FAQS = [
   },
   {
     q: "What industries has he worked with?",
-    a: "Signage and printing (Builders Signs), wellness/spa services (Majesty Day Spa), real estate (Keller Williams), and retail/banking through his prior operations management career.",
+    a: "Large-scale printing, wealth & wellness, and real estate, plus retail and banking through his prior operations management career.",
   },
   {
     q: "Where is he based and is he open to remote work?",
