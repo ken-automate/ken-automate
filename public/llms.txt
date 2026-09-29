@@ -12,7 +12,7 @@ I build systems that eliminate manual, repetitive operational work by connecting
 - Ops Systems & SOPs (documentation, handover, training)
 
 ## Notable projects
-- Proof-Flow: a full custom Django quoting application rebuild for a signage company, covering admin dashboard and client-facing quote approval
+- Quoting App Rebuild: a full custom Django quoting application for a large-scale printing business, covering admin dashboard and client-facing quote approval
 - Golf Club Competitor Price & Inventory Monitor: a Python + Playwright web scraping system tracking competitor pricing across 5 sites, automated into scheduled Google Sheets reports via n8n
 - AI Voice Receptionist & Booking System (n8n + Vapi)
 - RAG Knowledge Agent with Live Sync (n8n)
