@@ -355,11 +355,35 @@ function Index() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section id="faq" className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <SectionHeading
+              index="04 / FAQ"
+              title="Frequently asked questions"
+              lead="Quick answers about what I do, the tools I build with, and how I work."
+            />
+            <div className="grid gap-x-12 gap-y-10 lg:grid-cols-2">
+              {FAQS.map((f, i) => (
+                <Reveal key={f.q} as="article" delay={i * 60}>
+                  <h3 className="text-base font-semibold">
+                    <span className="mr-3 font-mono text-xs text-primary">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {f.q}
+                  </h3>
+                  <p className="mt-3 pl-8 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Contact */}
         <section id="contact">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
-              index="04 / Contact"
+              index="05 / Contact"
               title="Book a discovery call"
               lead="Pick a time that works for you and tell me where the manual work is piling up."
             />
