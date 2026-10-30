@@ -31,14 +31,14 @@ export const PORTFOLIO: PortfolioItem[] = [
     image: asanaLeads.url,
     alt: "Zapier workflow splitting an Asana task update into five lead-stage paths with Gmail follow-ups",
     shows:
-      "A 23-step Zapier Zap where a single Asana task update fans out into five parallel pipeline paths — Ready to Start, No Response, Quoted, Approved, and Paid and Closed — each with its own conditions, delays and email actions.",
+      "A 23-step Zapier Zap where a single Asana task update fans out into five parallel pipeline paths (Ready to Start, No Response, Quoted, Approved, and Paid and Closed), each with its own conditions, delays and email actions.",
     build:
       "Asana acts as the lightweight CRM. When a task moves stage, Paths route the lead down the correct branch: lead folders are created in Google Drive, staged follow-up emails go out through Gmail with Delay and Filter steps between attempts, approved deals pull their PDF quote from Drive, and AI by Zapier drafts a personalised welcome message before it is sent.",
     tools: ["Zapier", "Asana", "Gmail", "Google Drive", "AI by Zapier"],
     problem:
       "Leads were slipping between stages because follow-up depended on someone remembering to send the next email, and quoted deals went cold with no second touch.",
     result:
-      "Every stage change now triggers the right follow-up automatically, quoted leads receive a timed second and third touch, and onboarding emails go out the moment a deal is approved — no manual chasing.",
+      "Every stage change now triggers the right follow-up automatically, quoted leads receive a timed second and third touch, and onboarding emails go out the moment a deal is approved. No manual chasing.",
   },
   {
     id: "leads-enrichment",
@@ -54,7 +54,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "Raw form leads arrived with nothing but a name and email, so the team spent time researching each one manually before deciding who was worth calling.",
     result:
-      "Leads arrive pre-enriched and pre-qualified, with the best ones surfaced in Slack in seconds and a draft email already written — cutting research time to zero and shortening first-response time.",
+      "Leads arrive pre-enriched and pre-qualified, with the best ones surfaced in Slack in seconds and a draft email already written, cutting research time to zero and shortening first-response time.",
   },
   {
     id: "content-repurposing",
@@ -65,7 +65,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     shows:
       "A Zap triggered by a new file in a Google Drive folder, passing through filters, two AI by Zapier steps and a Looping step that splits generated content into multiple publishing paths.",
     build:
-      "New media dropped into Drive is filtered for the right file type, transcribed by AI, then rewritten into multiple blog and social posts. Looping by Zapier iterates over each generated line item and Paths send each variant to its correct destination — including automated Facebook Page posts.",
+      "New media dropped into Drive is filtered for the right file type, transcribed by AI, then rewritten into multiple blog and social posts. Looping by Zapier iterates over each generated line item and Paths send each variant to its correct destination, including automated Facebook Page posts.",
     tools: ["Zapier", "Google Drive", "AI by Zapier", "Facebook Pages"],
     problem:
       "One recorded video took hours to turn into written content, and most recordings were never repurposed at all.",
@@ -86,7 +86,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "Reconciling finance data meant exporting from Xero by hand, reformatting it in a spreadsheet, and re-uploading it wherever the team was tracking the job.",
     result:
-      "Transaction exports are generated and attached to the right task automatically, with a self-clearing staging sheet so the process repeats cleanly every time — removing a recurring manual export job.",
+      "Transaction exports are generated and attached to the right task automatically, with a self-clearing staging sheet so the process repeats cleanly every time, removing a recurring manual export job.",
   },
   {
     id: "gmail-drive",
@@ -102,7 +102,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "Invoices, quotes and signed documents piled up in the inbox with meaningless filenames, and filing them by hand was slow and inconsistent.",
     result:
-      "Documents file themselves within minutes of arriving, under a predictable naming convention, with a searchable log — so nothing is lost and no one spends time on inbox housekeeping.",
+      "Documents file themselves within minutes of arriving, under a predictable naming convention, with a searchable log, so nothing is lost and no one spends time on inbox housekeeping.",
   },
   {
     id: "facebook-agent",
@@ -118,7 +118,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "Page enquiries arrived at all hours and went unanswered until someone opened the inbox, costing leads to faster-replying competitors.",
     result:
-      "Every message gets an accurate, context-aware answer within seconds, 24/7, with conversation memory so follow-up questions make sense — and only genuine handovers reach a human.",
+      "Every message gets an accurate, context-aware answer within seconds, 24/7, with conversation memory so follow-up questions make sense, and only genuine handovers reach a human.",
   },
   {
     id: "ai-receptionist",
@@ -127,7 +127,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     image: receptionist.url,
     alt: "n8n workflow with grouped branches for getting slots, booking, updating and cancelling appointments",
     shows:
-      "A multi-branch n8n workflow organised into labelled blocks — Get Slots, Book Slot, Update Slot, Cancel Slot and Call Result — each acting as a tool the voice agent can call.",
+      "A multi-branch n8n workflow organised into labelled blocks (Get Slots, Book Slot, Update Slot, Cancel Slot and Call Result), each acting as a tool the voice agent can call.",
     build:
       "A Vapi voice agent calls webhook tools per intent. Get Slots reads the calendar, formats availability and returns speakable time ranges. Book Slot validates payload data, converts timezones, creates the calendar event and logs the booking to Airtable. Update and Cancel find the original appointment, amend or delete the event and confirm back. Every branch has its own error-response path.",
     tools: ["n8n", "Vapi", "Google Calendar", "Airtable", "Webhooks"],
@@ -150,7 +150,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "Tailoring a resume to each job posting is the single biggest time cost in applying, so applications were either generic or never sent.",
     result:
-      "One Slack message returns a set of matched roles, each with a role-specific resume already stored in Drive and an application email drafted — reducing hours of tailoring to a few minutes of review.",
+      "One Slack message returns a set of matched roles, each with a role-specific resume already stored in Drive and an application email drafted, reducing hours of tailoring to a few minutes of review.",
   },
   {
     id: "shorts-creator",
@@ -177,38 +177,39 @@ export const PORTFOLIO: PortfolioItem[] = [
     shows:
       "Four grouped n8n flows: a chat-triggered RAG Agent, plus New Docs, Delete Docs and File Updated branches that keep a Supabase vector store in sync with a Google Drive folder.",
     build:
-      "The agent answers chat messages using an OpenAI chat model, memory and a Supabase Vector Store tool. Three Drive watchers maintain the index: created files are downloaded, embedded and inserted; deleted files remove their rows; updated files delete the stale rows and re-embed the new version — so retrieval always reflects the current documents.",
+      "The agent answers chat messages using an OpenAI chat model, memory and a Supabase Vector Store tool. Three Drive watchers maintain the index: created files are downloaded, embedded and inserted; deleted files remove their rows; updated files delete the stale rows and re-embed the new version, so retrieval always reflects the current documents.",
     tools: ["n8n", "Supabase Vector Store", "OpenAI Embeddings", "Google Drive"],
     problem:
       "Internal answers lived in scattered documents, and any AI assistant built on them went stale the moment a file was edited.",
     result:
-      "Staff get grounded answers from company documents through chat, and the knowledge base updates itself on every file create, edit or delete — no re-indexing task and no outdated responses.",
+      "Staff get grounded answers from company documents through chat, and the knowledge base updates itself on every file create, edit or delete. No re-indexing task and no outdated responses.",
   },
   {
     id: "golf-monitor",
     title: "Golf Club Competitor Price & Inventory Monitor",
     category: "Market Intelligence · Python + n8n",
-    image: "/assets/Golf_Competitor_Monitor.png",
-    alt: "Weekly competitor report showing clubs tracked, clubs sold, turnover and price-band sell-through by site",
+    image: "/assets/Golf_Competitor_Monitor_Dashboard.png",
+    alt: "Golf Competitor Monitor dashboard showing clubs sold, turnover, turnover per week and average sold price across seven Australian retailers",
+    gallery: ["/assets/Golf_Competitor_Monitor.png"],
     shows:
       "A multi-site scraping system tracking golf club listings across 5 competitor marketplaces, standardizing every listing into Brand, Model, Club Type, Build Year, Condition and Price, and tracking which listings sell versus stay live.",
     build:
-      "Python scrapers (including Playwright for JS-rendered sites) covering 5 AU golf retailers, with sold-vs-new tracking by monitoring listing URLs between scrape runs. A self-hosted n8n workflow runs on a weekly schedule and pushes Current Listings, New Listings, Sold Items and a cross-site Model Synthesis rollup straight into Google Sheets — no manual report building.",
+      "Python scrapers (including Playwright for JS-rendered sites) covering 5 AU golf retailers, with sold-vs-new tracking by monitoring listing URLs between scrape runs. A self-hosted n8n workflow runs on a weekly schedule and pushes Current Listings, New Listings, Sold Items and a cross-site Model Synthesis rollup straight into Google Sheets. No manual report building.",
     tools: ["Python", "Playwright", "n8n", "Google Sheets", "eBay API"],
     problem:
-      "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock — slow, inconsistent, and easy to miss a good deal.",
+      "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock: slow, inconsistent, and easy to miss a good deal.",
     result:
-      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap — turning hours of manual browsing into a scheduled system.",
+      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system.",
   },
   {
     id: "proof-flow",
     title: "Quoting App Rebuild",
     category: "Quoting System · Django",
-    image: "/assets/ProofFlow_Dashboard.png",
+    image: "/assets/Quoting_App_Dashboard.png",
     gallery: ["/assets/ProofFlow_Proposals.png", "/assets/ProofFlow_Edit_Quote.png"],
-    alt: "Quoting platform admin dashboard with proposal stats, charts and client activity",
+    alt: "Quoting platform dashboard with quote and proof stats, latest approvals, deadlines and follow-ups",
     shows:
-      "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page — from the internal dashboard down to the customer's quote approval screen.",
+      "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page, from the internal dashboard down to the customer's quote approval screen.",
     build:
       "A Django rebuild covering the full admin side (dynamic drag-and-drop quote editor, client management, a template hub with pricing-list import) and the customer-facing quote flow (Introduction, About, Product Spotlight, and an interactive Quote screen with itemized pricing and Approve/Amend/Reject actions).",
     tools: ["Django", "Python", "HTML", "Figma", "GitHub", "Railway"],

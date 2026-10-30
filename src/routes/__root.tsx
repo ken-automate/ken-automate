@@ -22,7 +22,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full border border-cta-border bg-cta px-4 py-2 text-sm font-medium text-cta-foreground transition-colors hover:border-cta-hover hover:bg-cta-hover hover:text-cta-hover-foreground"
           >
             Go home
           </Link>
@@ -54,13 +54,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full border border-cta-border bg-cta px-4 py-2 text-sm font-medium text-cta-foreground transition-colors hover:border-cta-hover hover:bg-cta-hover hover:text-cta-hover-foreground"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go home
           </a>
@@ -75,14 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ken Cleofe — AI Automation Specialist" },
+      { title: "Ken Cleofe | AI Automation Specialist" },
       {
         name: "description",
         content:
           "AI automation and operations specialist building Zapier, Make, n8n and GoHighLevel systems that remove manual work.",
       },
       { name: "author", content: "Kenneth Louie Cleofe" },
-      { property: "og:title", content: "Ken Cleofe — AI Automation Specialist" },
+      { property: "og:title", content: "Ken Cleofe | AI Automation Specialist" },
       {
         property: "og:description",
         content:
@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Ken Cleofe — AI Automation Specialist" },
+      { name: "twitter:title", content: "Ken Cleofe | AI Automation Specialist" },
       { name: "twitter:description", content: "AI automation and operations specialist building Zapier, Make, n8n and GoHighLevel systems that remove manual work." },
       { property: "og:image", content: "https://ken-automate.lovable.app/brand/og-image.png" },
       { name: "twitter:image", content: "https://ken-automate.lovable.app/brand/og-image.png" },
@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],

@@ -1,6 +1,6 @@
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <a href="#top" className="kc-logo group inline-flex items-center gap-3" aria-label="Ken Cleofe — AI Automation Specialist">
+    <a href="#top" className="kc-logo group inline-flex items-center gap-3" aria-label="Ken Cleofe | AI Automation Specialist">
       <svg
         viewBox="0 0 64 64"
         className="h-9 w-9 shrink-0"
@@ -14,8 +14,10 @@ export function Logo({ compact = false }: { compact?: boolean }) {
           y="4"
           width="56"
           height="56"
+          rx="12"
+          pathLength="232"
           fill="none"
-          stroke="var(--primary)"
+          stroke="var(--cta-hover)"
           strokeWidth="3"
         />
         {/* K */}
@@ -28,7 +30,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
           className="kc-c"
           d="M50 23 A10 10 0 1 0 50 41"
           fill="none"
-          stroke="var(--primary)"
+          stroke="var(--cta-hover)"
           strokeWidth="4.5"
           strokeLinecap="square"
         />

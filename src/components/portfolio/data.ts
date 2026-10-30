@@ -36,13 +36,19 @@ export const SERVICES = [
     body: "Documented, repeatable systems so your team runs the process the same way every time, with or without supervision.",
     points: ["SOP writing", "Loom walkthroughs", "Handover documentation"],
   },
+  {
+    no: "05",
+    title: "Custom Web Apps (AI-Assisted)",
+    body: "Full working web applications built with AI-assisted development, from admin dashboards to client-facing pages, deployed live and connected to your CRM and tools.",
+    points: ["Admin dashboards & client portals", "CRM & API integrations", "Live deployment & hosting"],
+  },
 ];
 
 export const EXPERIENCE = [
   {
     role: "Operations Manager",
     company: "Summit Glazing Solutions Inc.",
-    period: "Feb 2022 – Feb 2026",
+    period: "Feb 2022 - Feb 2026",
     points: [
       "Identified manual and repetitive operational bottlenecks and implemented systems to streamline scheduling, client communications, and project tracking workflows.",
       "Managed and maintained CRM platforms to automate client follow-ups, update records, and ensure full operational visibility across multiple active project sites.",
@@ -54,7 +60,7 @@ export const EXPERIENCE = [
   {
     role: "Department Manager",
     company: "SM Retail",
-    period: "2017 – 2020",
+    period: "2017 - 2020",
     points: [
       "Rebuilt the entire department schedule from scratch after identifying coverage gaps, improving floor coverage and increasing sales.",
       "Managed a team of 50 to 70 staff with structured processes for delegation, performance monitoring and daily operations.",
@@ -64,7 +70,7 @@ export const EXPERIENCE = [
   {
     role: "Relationship Manager",
     company: "UnionBank of the Philippines",
-    period: "2016 – 2017",
+    period: "2016 - 2017",
     points: [
       "Managed a portfolio of retail and business banking clients with detailed records of interactions, needs and follow-up actions.",
       "Proactively identified client needs and delivered tailored financial solutions, maintaining strong retention rates.",
@@ -74,7 +80,7 @@ export const EXPERIENCE = [
   {
     role: "Registered Financial Advisor",
     company: "BDO Life Assurance Company, Inc.",
-    period: "2013 – 2016",
+    period: "2013 - 2016",
     points: [
       "Handled high-volume inbound client consultations, identified needs, managed objections and closed sales consultatively.",
       "Consistently met and exceeded sales targets through proactive follow-up and accurate record keeping.",
@@ -99,7 +105,7 @@ export const WORKS = [
   {
     title: "Quote & Document Generation Flow",
     context: "Back office",
-    body: "Form intake to generated document to signature request to filed record — a single Make scenario that removed hours of repeated manual preparation each week.",
+    body: "Form intake to generated document to signature request to filed record: a single Make scenario that removed hours of repeated manual preparation each week.",
     tags: ["Make (Integromat)", "Google Workspace"],
   },
   {
@@ -117,7 +123,7 @@ export const WORKS = [
   {
     title: "Scheduling Rebuild",
     context: "SM Retail",
-    body: "A ground-up rebuild of a 50–70 person department schedule, closing coverage gaps and lifting sales through better staffing against traffic patterns.",
+    body: "A ground-up rebuild of a 50-70 person department schedule, closing coverage gaps and lifting sales through better staffing against traffic patterns.",
     tags: ["Operations", "Workforce Planning"],
   },
 ];
@@ -133,19 +139,19 @@ export const STACK = [
   { group: "Design & Content", items: ["Canva", "CapCut", "Adobe Photoshop"] },
 ];
 
-export const CERTIFICATIONS = [
-  "Zapier Automation Certification — 2025",
-  "Zapier Certification — TaraAI, 2026",
-  "Make (Integromat) Certification — TaraAI, 2026",
-  "Prompt Engineering Certification — TaraAI, 2026",
-  "GoHighLevel Certification — TaraAI, 2025",
-  "Email Marketing Certification — HubSpot Academy, 2026",
-  "Shopify Certification — Alison, 2026",
+export const CERTIFICATIONS: { name: string; issuer?: string; year: string }[] = [
+  { name: "Zapier Automation Certification", year: "2025" },
+  { name: "Zapier Certification", issuer: "TaraAI", year: "2026" },
+  { name: "Make (Integromat) Certification", issuer: "TaraAI", year: "2026" },
+  { name: "Prompt Engineering Certification", issuer: "TaraAI", year: "2026" },
+  { name: "GoHighLevel Certification", issuer: "TaraAI", year: "2025" },
+  { name: "Email Marketing Certification", issuer: "HubSpot Academy", year: "2026" },
+  { name: "Shopify Certification", issuer: "Alison", year: "2026" },
 ];
 
 export const WORK_SETUP = [
-  "Two laptops — HP EliteBook, Dell Latitude",
-  "300–400 Mbps internet connection",
+  "Two laptops: HP EliteBook, Dell Latitude",
+  "300-400 Mbps internet connection",
   "UPS for internet continuity",
   "Backup power station",
   "Quiet, dedicated workspace",

@@ -39,7 +39,7 @@ export function ThemeToggle() {
         setDark(next);
         applyTheme(next);
       }}
-      className="press grid h-9 w-9 place-items-center rounded-sm border border-border bg-surface text-foreground hover:border-primary hover:text-primary"
+      className="press grid h-9 w-9 place-items-center rounded-full border border-border bg-surface text-foreground hover:border-primary hover:text-primary"
     >
       <span className="sr-only">Toggle theme</span>
       {mounted && dark ? (

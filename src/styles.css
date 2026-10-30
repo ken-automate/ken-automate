@@ -21,8 +21,21 @@
 @theme inline {
   --font-display: var(--font-heading);
   --font-sans: var(--font-text);
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --color-surface: var(--surface);
   --color-grid-line: var(--grid-line);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-cta-border: var(--cta-border);
+  --color-glow: var(--glow);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-hover: var(--charcoal-hover);
+  --color-charcoal-foreground: var(--charcoal-foreground);
+  --color-charcoal-muted: var(--charcoal-muted);
+  --color-charcoal-border: var(--charcoal-border);
+  --color-charcoal-accent: var(--charcoal-accent);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-hover-foreground: var(--cta-hover-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -66,28 +79,44 @@
 }
 
 :root {
-  --radius: 0.25rem;
-  --background: oklch(0.985 0.008 90);
-  --foreground: oklch(0.22 0.02 80);
+  --radius: 1rem;
+  /* Palette modelled on siteskins.com.au (neutral whites), with maroon as the accent and black CTAs. */
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.205 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.02 80);
+  --card-foreground: oklch(0.205 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.02 80);
-  --primary: oklch(0.78 0.152 85);
-  --primary-foreground: oklch(0.22 0.05 85);
-  --secondary: oklch(0.95 0.015 90);
-  --secondary-foreground: oklch(0.25 0.02 80);
-  --muted: oklch(0.95 0.012 90);
-  --muted-foreground: oklch(0.52 0.02 85);
-  --accent: oklch(0.93 0.04 90);
-  --accent-foreground: oklch(0.25 0.02 80);
+  --popover-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.364 0.115 19);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.967 0.001 0);
+  --secondary-foreground: oklch(0.311 0.093 18.1);
+  --muted: oklch(0.967 0.001 0);
+  --muted-foreground: oklch(0.439 0 0);
+  --accent: oklch(0.953 0.013 5.8);
+  --accent-foreground: oklch(0.311 0.093 18.1);
   --destructive: oklch(0.62 0.21 25);
   --destructive-foreground: oklch(0.97 0.01 25);
-  --border: oklch(0.89 0.014 90);
-  --input: oklch(0.89 0.014 90);
-  --ring: oklch(0.78 0.152 85);
-  --surface: oklch(0.965 0.011 90);
-  --grid-line: oklch(0.9 0.015 90);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.87 0 0);
+  --ring: oklch(0.364 0.115 19);
+  --surface: oklch(0.984 0.003 247.9);
+  --grid-line: oklch(0.922 0 0);
+  --cta: oklch(0.205 0 0);
+  --cta-foreground: oklch(1 0 0);
+  --cta-border: oklch(0.205 0 0);
+  --cta-hover: oklch(0.364 0.115 19);
+  --cta-hover-foreground: oklch(1 0 0);
+  --constellation: oklch(0.205 0 0);
+  --glow: oklch(0.364 0.115 19);
+  --arc: oklch(0.843 0.049 8.5);
+  /* Charcoal panels (Services cards). */
+  --charcoal: oklch(0.197 0.008 17.9);
+  --charcoal-hover: oklch(0.216 0.01 17.9);
+  --charcoal-foreground: oklch(0.946 0 0);
+  --charcoal-muted: oklch(0.773 0 0);
+  --charcoal-border: oklch(0.261 0.012 18);
+  --charcoal-accent: oklch(0.946 0 0);
   --gradient-hero: radial-gradient(
     ellipse 80% 60% at 50% -10%,
     color-mix(in oklab, var(--primary) 28%, transparent),
@@ -112,27 +141,41 @@
 }
 
 .dark {
-  --background: oklch(0.17 0.012 80);
-  --foreground: oklch(0.96 0.008 90);
-  --card: oklch(0.22 0.015 80);
-  --card-foreground: oklch(0.96 0.008 90);
-  --popover: oklch(0.22 0.015 80);
-  --popover-foreground: oklch(0.96 0.008 90);
-  --primary: oklch(0.82 0.16 88);
-  --primary-foreground: oklch(0.2 0.04 85);
-  --secondary: oklch(0.26 0.016 80);
-  --secondary-foreground: oklch(0.96 0.008 90);
-  --muted: oklch(0.25 0.015 80);
-  --muted-foreground: oklch(0.7 0.015 85);
-  --accent: oklch(0.3 0.03 85);
-  --accent-foreground: oklch(0.96 0.008 90);
+  /* Dark mode, 60-30-10: warm near-black base, charcoal panels, oxblood reserved for CTAs, glows and active states. Soft white text. */
+  --background: oklch(0.158 0.005 17.7);
+  --foreground: oklch(0.946 0 0);
+  --card: oklch(0.197 0.008 17.9);
+  --card-foreground: oklch(0.946 0 0);
+  --popover: oklch(0.197 0.008 17.9);
+  --popover-foreground: oklch(0.946 0 0);
+  --primary: oklch(0.946 0 0);
+  --primary-foreground: oklch(0.143 0.006 325.9);
+  --secondary: oklch(0.197 0.008 17.9);
+  --secondary-foreground: oklch(0.946 0 0);
+  --muted: oklch(0.197 0.008 17.9);
+  --muted-foreground: oklch(0.713 0.009 17.4);
+  --accent: oklch(0.197 0.008 17.9);
+  --accent-foreground: oklch(0.946 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.3 0.016 80);
-  --input: oklch(0.3 0.016 80);
-  --ring: oklch(0.82 0.16 88);
-  --surface: oklch(0.2 0.014 80);
-  --grid-line: oklch(0.27 0.016 80);
+  --border: oklch(0.261 0.012 18);
+  --input: oklch(0.261 0.012 18);
+  --ring: oklch(0.946 0 0);
+  --surface: oklch(0.178 0.007 17.8);
+  --grid-line: oklch(0.216 0.01 17.9);
+  --cta: oklch(0.356 0.122 19.8);
+  --cta-foreground: oklch(0.946 0 0);
+  --cta-border: oklch(0.356 0.122 19.8);
+  --cta-hover: oklch(0.42 0.142 19.8);
+  --cta-hover-foreground: oklch(0.946 0 0);
+  --constellation: oklch(0.946 0 0);
+  --glow: oklch(0.274 0.089 20.1);
+  --gradient-hero: radial-gradient(
+    ellipse 80% 60% at 50% -10%,
+    color-mix(in oklab, var(--glow) 75%, transparent),
+    transparent 70%
+  );
+  --shadow-lift: 0 24px 60px -30px color-mix(in oklab, var(--glow) 90%, transparent);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -235,6 +278,56 @@
   overflow: hidden;
 }
 
+/* Moving border: a soft blush arc travels around the button's 2px outline, one turn every 3s.
+   The button's own background is the outline track; ::after paints the fill 2px inside it. */
+@utility arc-button {
+  isolation: isolate;
+  background: var(--cta);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--cta);
+    transition: background-color 0.3s ease;
+  }
+
+  &:hover::after {
+    background: var(--cta-hover);
+  }
+}
+
+@utility arc-spin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -2;
+  width: 300px;
+  height: 300px;
+  margin: -150px 0 0 -150px;
+  pointer-events: none;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 58%,
+    color-mix(in oklab, var(--arc) 55%, transparent) 82%,
+    var(--arc) 100%
+  );
+  animation: arc-spin 3s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes arc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes ripple-out {
   from {
     opacity: 0.45;
@@ -314,9 +407,11 @@
   height: 18px;
   border: 1px solid var(--border);
   border-bottom: none;
-  border-radius: 4px 10px 0 0;
+  border-radius: 10px 14px 0 0;
   background: var(--surface);
-  transition: background 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .folder-card .folder-body {
@@ -324,7 +419,7 @@
   display: block;
   height: 190px;
   border: 1px solid var(--border);
-  border-radius: 2px 6px 6px 6px;
+  border-radius: 2px 16px 16px 16px;
   background: var(--surface);
   overflow: hidden;
   transition:
@@ -339,7 +434,7 @@
   display: block;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 10px;
   background: var(--background);
   transform: translateY(10px);
   opacity: 0.85;
@@ -363,13 +458,14 @@
 .folder-card:hover .folder-body,
 .folder-card:focus-visible .folder-body {
   transform: translateY(-4px);
-  border-color: var(--primary);
+  border-color: var(--cta-hover);
   box-shadow: var(--shadow-lift);
 }
 
 .folder-card:hover .folder-tab,
 .folder-card:focus-visible .folder-tab {
-  background: color-mix(in oklab, var(--primary) 20%, var(--surface));
+  border-color: var(--cta-hover);
+  background: color-mix(in oklab, var(--cta-hover) 35%, var(--surface));
 }
 
 .folder-card:hover .folder-peek,
@@ -457,5 +553,25 @@
   }
   .kc-logo:hover {
     transform: none;
+  }
+}
+
+/* How I Work: dot travelling along the timeline (track is sized in ProcessTimeline). */
+@keyframes timeline-dot {
+  0% {
+    left: 0%;
+    top: 0%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    top: 100%;
+    opacity: 0;
   }
 }

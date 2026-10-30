@@ -10,6 +10,7 @@ I build systems that eliminate manual, repetitive operational work by connecting
 - CRM Automation & Integration (GoHighLevel, HubSpot)
 - AI Tool Implementation (ChatGPT, Claude, prompt engineering)
 - Ops Systems & SOPs (documentation, handover, training)
+- Custom Web Apps, AI-Assisted (admin dashboards, client portals, CRM and API integrations, live deployment)
 
 ## Industries served
 - Large-scale printing
