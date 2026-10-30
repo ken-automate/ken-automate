@@ -158,8 +158,8 @@ function Index() {
         <section className="relative overflow-hidden border-b border-border">
           <div className="pointer-events-none absolute inset-0 grid-backdrop opacity-60" />
           <div className="pointer-events-none absolute inset-0 hero-glow" />
-          <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
-            <div className="grid items-center gap-14 lg:grid-cols-[1.35fr_0.65fr]">
+          <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-10 sm:py-32">
+            <div className="grid items-center gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-14">
               <div className="min-w-0">
                 <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
                   {PROFILE.role}
@@ -199,7 +199,7 @@ function Index() {
                 </div>
               </div>
 
-              <Reveal className="relative mx-auto w-full max-w-xs sm:max-w-sm">
+              <Reveal className="relative order-first mx-auto w-full max-w-[15rem] sm:max-w-sm lg:order-last">
                 <div className="relative">
                   <div className="pointer-events-none absolute -inset-8 rounded-full bg-glow/70 blur-3xl" />
                   <div className="relative aspect-square overflow-hidden rounded-full border border-border bg-surface">
