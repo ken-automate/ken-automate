@@ -4,6 +4,7 @@ const PLATFORMS = [
   { name: "n8n", slug: "n8n" },
   { name: "HubSpot", slug: "hubspot" },
   { name: "Claude", slug: "claude" },
+  { name: "Python", slug: "python" },
   { name: "Google Workspace", slug: "googledocs" },
   { name: "Google Drive", slug: "googledrive" },
   { name: "Zoom", slug: "zoom" },
@@ -12,12 +13,14 @@ const PLATFORMS = [
   { name: "Airtable", slug: "airtable" },
   { name: "Trello", slug: "trello" },
   { name: "Shopify", slug: "shopify" },
+  { name: "Django", slug: "django" },
   { name: "Calendly", slug: "calendly" },
 ];
 
 type Platform = (typeof PLATFORMS)[number];
 
-const ROWS = [PLATFORMS.slice(0, 7), PLATFORMS.slice(7)];
+const half = Math.ceil(PLATFORMS.length / 2);
+const ROWS = [PLATFORMS.slice(0, half), PLATFORMS.slice(half)];
 
 function Logo({ p }: { p: Platform }) {
   return (
