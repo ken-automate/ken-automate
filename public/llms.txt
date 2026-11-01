@@ -19,16 +19,17 @@ I build systems that eliminate manual, repetitive operational work by connecting
 - Retail and banking/financial services
 
 ## Notable projects
-- Quoting App Rebuild: a full custom Django quoting application for a large-scale printing business, covering admin dashboard and client-facing quote approval
-- Golf Club Competitor Price & Inventory Monitor: a Python + Playwright web scraping system tracking competitor pricing across 5 sites, automated into scheduled Google Sheets reports via n8n
+- Quoting App Rebuild: a full custom Django quoting application for a large-scale printing business, covering admin dashboard and client-facing quote approval; in live use for 5 to 7 new quotes a day and built to scale to hundreds
+- Golf Club Competitor Price & Inventory Monitor: a Python (pydoll) web scraping system tracking used golf club pricing, sales and stock across Australian competitor retailers, with scheduled Google Sheets reports via n8n and a live dashboard
 - AI Voice Receptionist & Booking System (n8n + Vapi)
 - RAG Knowledge Agent with Live Sync (n8n)
 - AI Agent for Facebook Messenger (n8n)
 
 ## Background
-Former Operations Manager (Summit Glazing Solutions) and Department Manager (SM Retail), with a background in banking/financial services before transitioning into automation and AI tooling.
+Currently System and Automation Manager at Site Skins, Focus Banners and Arena Branding, three sister brands under one owner (Australia, remote). Former Operations Manager (Summit Glazing Solutions) and Department Manager (SM Retail), with a background in banking/financial services before transitioning into automation and AI tooling.
 
 ## Contact
 Email: kencleofe.automation@gmail.com
 LinkedIn: www.linkedin.com/in/ken-automate/
-Portfolio: https://ken-automate.onrender.com
+Portfolio (official site): https://ken-automate.onrender.com/
+Book a discovery call: https://calendly.com/ken-automate/book-a-discovery-call

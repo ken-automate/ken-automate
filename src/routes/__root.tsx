@@ -93,8 +93,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Ken Cleofe | AI Automation Specialist" },
       { name: "twitter:description", content: "AI automation and operations specialist building Zapier, Make, n8n and GoHighLevel systems that remove manual work." },
-      { property: "og:image", content: "https://ken-automate.lovable.app/brand/og-image.png" },
-      { name: "twitter:image", content: "https://ken-automate.lovable.app/brand/og-image.png" },
+      { property: "og:image", content: "https://ken-automate.onrender.com/brand/og-image.png" },
+      { name: "twitter:image", content: "https://ken-automate.onrender.com/brand/og-image.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

@@ -216,6 +216,6 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
     result:
-      "A pixel-matched, fully functional quoting system now used in live client operations, replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
+      "A pixel-matched, fully functional quoting system now used in live client operations, handling 5 to 7 new quotes a day and built to scale to hundreds, replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
   },
 ];
