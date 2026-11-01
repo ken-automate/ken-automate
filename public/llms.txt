@@ -5,6 +5,12 @@ AI Automation & Operations Specialist based in Marikina City, Philippines.
 ## What I do
 I build systems that eliminate manual, repetitive operational work by connecting business apps, automating CRM workflows, deploying AI agents, and building custom applications when off-the-shelf tools aren't enough.
 
+## Who I help
+Small and medium businesses in Australia, the United States and the United Kingdom that want to remove manual, repetitive work. I bring 8+ years of hands-on operations experience, so I fix the process first, then automate it.
+
+## How to work with me
+Projects start with a free 30 to 60 minute discovery call. Pricing depends on the workload: after scoping, clients get a fixed quote before anything is built.
+
 ## Services
 - Workflow Automation Builds (Zapier, Make, n8n)
 - CRM Automation & Integration (GoHighLevel, HubSpot)
@@ -19,8 +25,8 @@ I build systems that eliminate manual, repetitive operational work by connecting
 - Retail and banking/financial services
 
 ## Notable projects
-- Quoting App Rebuild: a full custom Django quoting application for a large-scale printing business, covering admin dashboard and client-facing quote approval; in live use for 5 to 7 new quotes a day and built to scale to hundreds
-- Golf Club Competitor Price & Inventory Monitor: a Python (pydoll) web scraping system tracking used golf club pricing, sales and stock across Australian competitor retailers, with scheduled Google Sheets reports via n8n and a live dashboard
+- Quoting App Rebuild: a full custom Django quoting application for a large-scale printing business, covering admin dashboard and client-facing quote approval; in live use for 5 to 7 new quotes a day and built to scale to hundreds; removed hours of double tagging across the CRM, reports and follow-ups, and duplicate proof reports
+- Golf Club Competitor Price & Inventory Monitor: a Python (pydoll) web scraping system tracking used golf club pricing, sales and stock across Australian competitor retailers, with scheduled Google Sheets reports via n8n and a live dashboard; saves months of manual market research
 - AI Voice Receptionist & Booking System (n8n + Vapi)
 - RAG Knowledge Agent with Live Sync (n8n)
 - AI Agent for Facebook Messenger (n8n)

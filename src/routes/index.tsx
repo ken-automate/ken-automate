@@ -3,7 +3,7 @@ import { HomePage } from "@/components/portfolio/HomePage";
 
 const TITLE = "Kenneth Louie Cleofe | AI Automation & Operations Specialist";
 const DESCRIPTION =
-  "8+ years turning manual operations into automated systems with Zapier, Make, n8n, GoHighLevel and AI. Services, work experience, past builds and a discovery call booking link.";
+  "Automation for small and medium businesses in Australia, the US and the UK. 8+ years in operations, building Zapier, Make, n8n, GoHighLevel and AI systems that remove manual work.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -8,6 +8,7 @@ import { Constellation } from "@/components/portfolio/Constellation";
 import { ProcessTimeline } from "@/components/portfolio/ProcessTimeline";
 import { Credentials, ExperienceList } from "@/components/portfolio/Experience";
 import { Faq } from "@/components/portfolio/Faq";
+import { ProblemsFixed } from "@/components/portfolio/ProblemsFixed";
 import { Search, GitBranch, Wrench, ClipboardCheck, Rocket, Headphones } from "lucide-react";
 const portrait = { url: "/assets/ken-cleofe-portrait-maroon.png" };
 const resume = { url: "/assets/Kenneth-Cleofe-Resume.pdf" };
@@ -79,8 +80,24 @@ const FAQS = [
     a: "Large-scale printing, wealth & wellness, and real estate, plus retail and banking through his prior operations management career.",
   },
   {
-    q: "Where is he based and is he open to remote work?",
-    a: "Ken is based in Marikina City, Philippines, and works with clients remotely.",
+    q: "Where is he based and which countries does he work with?",
+    a: "Ken is based in Marikina City, Philippines, and works remotely with small and medium businesses in Australia, the United States and the United Kingdom.",
+  },
+  {
+    q: "How much does an automation project cost?",
+    a: "It depends on the workload. Ken starts with a free 30 to 60 minute discovery call, scopes the work, then gives a fixed quote before anything is built.",
+  },
+  {
+    q: "Why hire an automation specialist with an operations background?",
+    a: "Automation only helps if the process behind it is right. Ken spent 8+ years running operations, so he maps how the work actually flows, fixes the gaps, then automates it.",
+  },
+  {
+    q: "Will my business need to change its software?",
+    a: "Usually not. Ken builds around the tools a business already uses and connects them with Zapier, Make or n8n.",
+  },
+  {
+    q: "What happens if an automation breaks?",
+    a: "Every build includes error handling and retries, is documented with SOPs and Loom walkthroughs, and Ken stays available after launch for fixes, tweaks and scaling.",
   },
 ];
 
@@ -144,11 +161,8 @@ export function HomePage() {
                   I turn manual operations into systems that run themselves.
                 </h1>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  I help businesses eliminate repetitive work by building AI-powered automations
-                  that connect their apps, gather the data they need, and streamline operations,
-                  freeing teams to focus on higher-value work. From CRM workflows and AI agents to
-                  custom integrations and full custom applications, I build reliable systems that
-                  save time, reduce manual effort, and scale with your business.
+                  Automation for small and medium businesses in Australia, the US and the UK. I've
+                  run operations for 8+ years, so I fix the process first, then automate it.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <a
@@ -167,14 +181,6 @@ export function HomePage() {
                     className="press ripple-host rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cta-hover hover:bg-secondary"
                   >
                     See previous work
-                  </a>
-                  <a
-                    href={resume.url}
-                    download="Kenneth-Cleofe-Resume.pdf"
-                    onMouseDown={ripple}
-                    className="press ripple-host rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cta-hover hover:bg-secondary"
-                  >
-                    Download Resume
                   </a>
                 </div>
               </div>
@@ -208,10 +214,24 @@ export function HomePage() {
         {/* Services — vertical scroll pans the cards sideways */}
         <ServicesScroll />
 
+        {/* Problems I fix: owner problems matched to real builds */}
+        <section id="problems" className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <SectionHeading
+              title="Problems I fix"
+              lead="Common operations problems in small and medium businesses, and the systems I built to solve them."
+            />
+            <ProblemsFixed />
+          </div>
+        </section>
+
         {/* How I Work: a timeline that draws itself in oxblood as the section scrolls into view */}
         <section id="how-i-work" className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-24">
-            <SectionHeading title="From first call to running automation" />
+            <SectionHeading
+              title="From first call to running automation"
+              lead="It starts with a free 30 to 60 minute discovery call. Once I understand the workload, you get a fixed quote before anything is built."
+            />
             <ProcessTimeline steps={PROCESS_STEPS} />
           </div>
         </section>
@@ -243,6 +263,16 @@ export function HomePage() {
             <SectionHeading title="Work experience" />
             <ExperienceList />
             <Credentials />
+            <div className="mt-10">
+              <a
+                href={resume.url}
+                download="Kenneth-Cleofe-Resume.pdf"
+                onMouseDown={ripple}
+                className="press ripple-host inline-block rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cta-hover hover:bg-secondary"
+              >
+                Download Resume
+              </a>
+            </div>
           </div>
         </section>
 

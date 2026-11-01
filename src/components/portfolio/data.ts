@@ -44,6 +44,45 @@ export const SERVICES = [
   },
 ];
 
+export const PROBLEMS = [
+  {
+    problem: "Leads go cold because nobody follows up in time",
+    fix: "Every stage change in the CRM now triggers the right follow-up automatically, with timed second and third touches on quoted leads.",
+    result: "No more manual chasing",
+    project: "Asana CRM workflow",
+  },
+  {
+    problem: "Staff enter the same job twice, in the CRM, reports and follow-ups",
+    fix: "One quoting and proofing system now feeds the CRM, reports and follow-ups, so nothing is tagged twice and proof reports are no longer doubled up.",
+    result: "Hours of double tagging removed",
+    project: "Quoting app",
+  },
+  {
+    problem: "Quoting takes too long and every quote looks different",
+    fix: "A drag-and-drop quote builder with saved, on-brand templates and pricing-list import, used for every quote across three brands.",
+    result: "5 to 7 quotes a day, built for hundreds",
+    project: "Quoting app",
+  },
+  {
+    problem: "Market research means checking competitor sites by hand",
+    fix: "Python scrapers and an n8n workflow pull competitor pricing, sales and stock into a weekly report automatically.",
+    result: "Months of market research saved",
+    project: "Golf price monitor",
+  },
+  {
+    problem: "Invoices and documents pile up in the inbox",
+    fix: "Attachments are read by AI, renamed consistently and filed into the right Drive folder, with a searchable log.",
+    result: "Filed within minutes of arriving",
+    project: "Gmail to Drive",
+  },
+  {
+    problem: "Customers wait for answers outside business hours",
+    fix: "AI agents answer messages and phone calls, book appointments and hand genuine issues to a person.",
+    result: "Answers in seconds, 24/7",
+    project: "AI receptionist",
+  },
+];
+
 export const EXPERIENCE = [
   {
     role: "System and Automation Manager",

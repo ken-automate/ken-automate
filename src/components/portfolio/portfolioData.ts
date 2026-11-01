@@ -199,7 +199,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock: slow, inconsistent, and easy to miss a good deal.",
     result:
-      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system.",
+      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system and saving months of manual market research.",
   },
   {
     id: "proof-flow",
@@ -216,6 +216,6 @@ export const PORTFOLIO: PortfolioItem[] = [
     problem:
       "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
     result:
-      "A pixel-matched, fully functional quoting system now used in live client operations, handling 5 to 7 new quotes a day and built to scale to hundreds, replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
+      "A pixel-matched, fully functional quoting system now used in live client operations, handling 5 to 7 new quotes a day and built to scale to hundreds, removing hours of double tagging across the CRM, reports and follow-ups and the duplicate proof reports, and replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
   },
 ];
