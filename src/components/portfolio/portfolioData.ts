@@ -25,6 +25,56 @@ export type PortfolioItem = {
 
 export const PORTFOLIO: PortfolioItem[] = [
   {
+    id: "proof-flow",
+    title: "Quoting App Rebuild",
+    category: "Quoting System · Django",
+    image: "/assets/Quoting_App_Dashboard.png",
+    gallery: ["/assets/ProofFlow_Proposals.png", "/assets/ProofFlow_Edit_Quote.png"],
+    alt: "Quoting platform dashboard with quote and proof stats, latest approvals, deadlines and follow-ups",
+    shows:
+      "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page, from the internal dashboard down to the customer's quote approval screen.",
+    build:
+      "A Django rebuild covering the full admin side (dynamic drag-and-drop quote editor, client management, a template hub with pricing-list import) and the customer-facing quote flow (Introduction, About, Product Spotlight, and an interactive Quote screen with itemized pricing and Approve/Amend/Reject actions).",
+    tools: ["Django", "Python", "HTML", "Figma", "GitHub", "Railway"],
+    problem:
+      "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
+    result:
+      "A pixel-matched, fully functional quoting system now used in live client operations, handling 5 to 7 new quotes a day and built to scale to hundreds, removing hours of double tagging across the CRM, reports and follow-ups and the duplicate proof reports, and replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
+  },
+  {
+    id: "golf-monitor",
+    title: "Golf Club Competitor Price & Inventory Monitor",
+    category: "Market Intelligence · Python + n8n",
+    image: "/assets/Golf_Competitor_Monitor_Dashboard.png",
+    alt: "Golf Competitor Monitor dashboard showing clubs sold, turnover, turnover per week and average sold price across seven Australian retailers",
+    gallery: ["/assets/Golf_Competitor_Monitor.png"],
+    shows:
+      "A multi-site scraping system tracking golf club listings across 5 competitor marketplaces, standardizing every listing into Brand, Model, Club Type, Build Year, Condition and Price, and tracking which listings sell versus stay live.",
+    build:
+      "Python scrapers (including Playwright for JS-rendered sites) covering 5 AU golf retailers, with sold-vs-new tracking by monitoring listing URLs between scrape runs. A self-hosted n8n workflow runs on a weekly schedule and pushes Current Listings, New Listings, Sold Items and a cross-site Model Synthesis rollup straight into Google Sheets. No manual report building.",
+    tools: ["Python", "Playwright", "n8n", "Google Sheets", "eBay API"],
+    problem:
+      "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock: slow, inconsistent, and easy to miss a good deal.",
+    result:
+      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system and saving months of manual market research.",
+  },
+  {
+    id: "ai-receptionist",
+    title: "AI Voice Receptionist & Booking System",
+    category: "Conversational AI · n8n + Vapi",
+    image: receptionist.url,
+    alt: "n8n workflow with grouped branches for getting slots, booking, updating and cancelling appointments",
+    shows:
+      "A multi-branch n8n workflow organised into labelled blocks (Get Slots, Book Slot, Update Slot, Cancel Slot and Call Result), each acting as a tool the voice agent can call.",
+    build:
+      "A Vapi voice agent calls webhook tools per intent. Get Slots reads the calendar, formats availability and returns speakable time ranges. Book Slot validates payload data, converts timezones, creates the calendar event and logs the booking to Airtable. Update and Cancel find the original appointment, amend or delete the event and confirm back. Every branch has its own error-response path.",
+    tools: ["n8n", "Vapi", "Google Calendar", "Airtable", "Webhooks"],
+    problem:
+      "Missed calls meant missed bookings, and manual scheduling created double-bookings and back-and-forth rescheduling calls.",
+    result:
+      "Calls are answered instantly and appointments booked, rescheduled or cancelled inside the conversation, with the calendar and records updated in real time and clean error handling when details are missing.",
+  },
+  {
     id: "asana-crm",
     title: "Asana CRM Lead Engagement Workflow",
     category: "CRM Automation · Zapier",
@@ -57,20 +107,36 @@ export const PORTFOLIO: PortfolioItem[] = [
       "Leads arrive pre-enriched and pre-qualified, with the best ones surfaced in Slack in seconds and a draft email already written, cutting research time to zero and shortening first-response time.",
   },
   {
-    id: "content-repurposing",
-    title: "AI Content Repurposing Pipeline",
-    category: "Marketing Automation · Zapier",
-    image: repurposing.url,
-    alt: "Zapier workflow transcribing Drive uploads and publishing generated posts to Facebook Pages",
+    id: "rag-agent",
+    title: "RAG Knowledge Agent with Live Sync",
+    category: "AI Infrastructure · n8n",
+    image: ragAgent.url,
+    alt: "n8n workflow with a RAG chat agent and three branches syncing Google Drive documents to a vector store",
     shows:
-      "A Zap triggered by a new file in a Google Drive folder, passing through filters, two AI by Zapier steps and a Looping step that splits generated content into multiple publishing paths.",
+      "Four grouped n8n flows: a chat-triggered RAG Agent, plus New Docs, Delete Docs and File Updated branches that keep a Supabase vector store in sync with a Google Drive folder.",
     build:
-      "New media dropped into Drive is filtered for the right file type, transcribed by AI, then rewritten into multiple blog and social posts. Looping by Zapier iterates over each generated line item and Paths send each variant to its correct destination, including automated Facebook Page posts.",
-    tools: ["Zapier", "Google Drive", "AI by Zapier", "Facebook Pages"],
+      "The agent answers chat messages using an OpenAI chat model, memory and a Supabase Vector Store tool. Three Drive watchers maintain the index: created files are downloaded, embedded and inserted; deleted files remove their rows; updated files delete the stale rows and re-embed the new version, so retrieval always reflects the current documents.",
+    tools: ["n8n", "Supabase Vector Store", "OpenAI Embeddings", "Google Drive"],
     problem:
-      "One recorded video took hours to turn into written content, and most recordings were never repurposed at all.",
+      "Internal answers lived in scattered documents, and any AI assistant built on them went stale the moment a file was edited.",
     result:
-      "A single upload now produces a transcript plus a batch of ready-to-publish posts that distribute themselves, turning every recording into multi-channel content without extra effort.",
+      "Staff get grounded answers from company documents through chat, and the knowledge base updates itself on every file create, edit or delete. No re-indexing task and no outdated responses.",
+  },
+  {
+    id: "facebook-agent",
+    title: "AI Agent for Facebook Messenger",
+    category: "Conversational AI · n8n",
+    image: agentFacebook.url,
+    alt: "n8n workflow with a webhook, verification branch and an AI agent using Gemini and memory",
+    shows:
+      "An n8n workflow where a webhook handles both Facebook's GET verification handshake and POST message events, feeding filtered messages into an AI Agent node backed by Google Gemini and a memory buffer.",
+    build:
+      "GET requests hit an If node that responds to Facebook's verification challenge. POST messages pass a Filter, load business context from a knowledge document, then run through an AI Agent with Gemini as the chat model and Simple Memory for conversation continuity. The reply is sent back through the Graph API via HTTP Request.",
+    tools: ["n8n", "Facebook Graph API", "Google Gemini", "Webhooks"],
+    problem:
+      "Page enquiries arrived at all hours and went unanswered until someone opened the inbox, costing leads to faster-replying competitors.",
+    result:
+      "Every message gets an accurate, context-aware answer within seconds, 24/7, with conversation memory so follow-up questions make sense, and only genuine handovers reach a human.",
   },
   {
     id: "xero-asana",
@@ -105,52 +171,20 @@ export const PORTFOLIO: PortfolioItem[] = [
       "Documents file themselves within minutes of arriving, under a predictable naming convention, with a searchable log, so nothing is lost and no one spends time on inbox housekeeping.",
   },
   {
-    id: "facebook-agent",
-    title: "AI Agent for Facebook Messenger",
-    category: "Conversational AI · n8n",
-    image: agentFacebook.url,
-    alt: "n8n workflow with a webhook, verification branch and an AI agent using Gemini and memory",
+    id: "content-repurposing",
+    title: "AI Content Repurposing Pipeline",
+    category: "Marketing Automation · Zapier",
+    image: repurposing.url,
+    alt: "Zapier workflow transcribing Drive uploads and publishing generated posts to Facebook Pages",
     shows:
-      "An n8n workflow where a webhook handles both Facebook's GET verification handshake and POST message events, feeding filtered messages into an AI Agent node backed by Google Gemini and a memory buffer.",
+      "A Zap triggered by a new file in a Google Drive folder, passing through filters, two AI by Zapier steps and a Looping step that splits generated content into multiple publishing paths.",
     build:
-      "GET requests hit an If node that responds to Facebook's verification challenge. POST messages pass a Filter, load business context from a knowledge document, then run through an AI Agent with Gemini as the chat model and Simple Memory for conversation continuity. The reply is sent back through the Graph API via HTTP Request.",
-    tools: ["n8n", "Facebook Graph API", "Google Gemini", "Webhooks"],
+      "New media dropped into Drive is filtered for the right file type, transcribed by AI, then rewritten into multiple blog and social posts. Looping by Zapier iterates over each generated line item and Paths send each variant to its correct destination, including automated Facebook Page posts.",
+    tools: ["Zapier", "Google Drive", "AI by Zapier", "Facebook Pages"],
     problem:
-      "Page enquiries arrived at all hours and went unanswered until someone opened the inbox, costing leads to faster-replying competitors.",
+      "One recorded video took hours to turn into written content, and most recordings were never repurposed at all.",
     result:
-      "Every message gets an accurate, context-aware answer within seconds, 24/7, with conversation memory so follow-up questions make sense, and only genuine handovers reach a human.",
-  },
-  {
-    id: "ai-receptionist",
-    title: "AI Voice Receptionist & Booking System",
-    category: "Conversational AI · n8n + Vapi",
-    image: receptionist.url,
-    alt: "n8n workflow with grouped branches for getting slots, booking, updating and cancelling appointments",
-    shows:
-      "A multi-branch n8n workflow organised into labelled blocks (Get Slots, Book Slot, Update Slot, Cancel Slot and Call Result), each acting as a tool the voice agent can call.",
-    build:
-      "A Vapi voice agent calls webhook tools per intent. Get Slots reads the calendar, formats availability and returns speakable time ranges. Book Slot validates payload data, converts timezones, creates the calendar event and logs the booking to Airtable. Update and Cancel find the original appointment, amend or delete the event and confirm back. Every branch has its own error-response path.",
-    tools: ["n8n", "Vapi", "Google Calendar", "Airtable", "Webhooks"],
-    problem:
-      "Missed calls meant missed bookings, and manual scheduling created double-bookings and back-and-forth rescheduling calls.",
-    result:
-      "Calls are answered instantly and appointments booked, rescheduled or cancelled inside the conversation, with the calendar and records updated in real time and clean error handling when details are missing.",
-  },
-  {
-    id: "job-scraper",
-    title: "AI Job Scraper & Resume Optimizer",
-    category: "AI Workflow · n8n",
-    image: jobScraper.url,
-    alt: "Long n8n workflow scraping jobs from Slack input and generating tailored resumes in Google Drive",
-    shows:
-      "An extended n8n workflow starting from a Slack trigger, validating the query, calling a job search API, looping over results and generating a tailored resume for each role before drafting an email.",
-    build:
-      "A Slack command supplies the search query, which is validated before hitting a jobs API. Results are split and looped: for each role the base resume is pulled from Google Drive, rewritten by an OpenRouter chat model with a structured output parser, checked for an existing copy, duplicated, updated with the tailored content, and finally turned into a Gmail draft with a Slack confirmation.",
-    tools: ["n8n", "Slack", "Job Search API", "OpenRouter", "Google Drive", "Gmail"],
-    problem:
-      "Tailoring a resume to each job posting is the single biggest time cost in applying, so applications were either generic or never sent.",
-    result:
-      "One Slack message returns a set of matched roles, each with a role-specific resume already stored in Drive and an application email drafted, reducing hours of tailoring to a few minutes of review.",
+      "A single upload now produces a transcript plus a batch of ready-to-publish posts that distribute themselves, turning every recording into multi-channel content without extra effort.",
   },
   {
     id: "shorts-creator",
@@ -169,53 +203,19 @@ export const PORTFOLIO: PortfolioItem[] = [
       "A content calendar in a spreadsheet becomes a hands-off publishing pipeline that scripts, renders and posts vertical video to two platforms on schedule, with error handling for failed renders.",
   },
   {
-    id: "rag-agent",
-    title: "RAG Knowledge Agent with Live Sync",
-    category: "AI Infrastructure · n8n",
-    image: ragAgent.url,
-    alt: "n8n workflow with a RAG chat agent and three branches syncing Google Drive documents to a vector store",
+    id: "job-scraper",
+    title: "AI Job Scraper & Resume Optimizer",
+    category: "AI Workflow · n8n",
+    image: jobScraper.url,
+    alt: "Long n8n workflow scraping jobs from Slack input and generating tailored resumes in Google Drive",
     shows:
-      "Four grouped n8n flows: a chat-triggered RAG Agent, plus New Docs, Delete Docs and File Updated branches that keep a Supabase vector store in sync with a Google Drive folder.",
+      "An extended n8n workflow starting from a Slack trigger, validating the query, calling a job search API, looping over results and generating a tailored resume for each role before drafting an email.",
     build:
-      "The agent answers chat messages using an OpenAI chat model, memory and a Supabase Vector Store tool. Three Drive watchers maintain the index: created files are downloaded, embedded and inserted; deleted files remove their rows; updated files delete the stale rows and re-embed the new version, so retrieval always reflects the current documents.",
-    tools: ["n8n", "Supabase Vector Store", "OpenAI Embeddings", "Google Drive"],
+      "A Slack command supplies the search query, which is validated before hitting a jobs API. Results are split and looped: for each role the base resume is pulled from Google Drive, rewritten by an OpenRouter chat model with a structured output parser, checked for an existing copy, duplicated, updated with the tailored content, and finally turned into a Gmail draft with a Slack confirmation.",
+    tools: ["n8n", "Slack", "Job Search API", "OpenRouter", "Google Drive", "Gmail"],
     problem:
-      "Internal answers lived in scattered documents, and any AI assistant built on them went stale the moment a file was edited.",
+      "Tailoring a resume to each job posting is the single biggest time cost in applying, so applications were either generic or never sent.",
     result:
-      "Staff get grounded answers from company documents through chat, and the knowledge base updates itself on every file create, edit or delete. No re-indexing task and no outdated responses.",
-  },
-  {
-    id: "golf-monitor",
-    title: "Golf Club Competitor Price & Inventory Monitor",
-    category: "Market Intelligence · Python + n8n",
-    image: "/assets/Golf_Competitor_Monitor_Dashboard.png",
-    alt: "Golf Competitor Monitor dashboard showing clubs sold, turnover, turnover per week and average sold price across seven Australian retailers",
-    gallery: ["/assets/Golf_Competitor_Monitor.png"],
-    shows:
-      "A multi-site scraping system tracking golf club listings across 5 competitor marketplaces, standardizing every listing into Brand, Model, Club Type, Build Year, Condition and Price, and tracking which listings sell versus stay live.",
-    build:
-      "Python scrapers (including Playwright for JS-rendered sites) covering 5 AU golf retailers, with sold-vs-new tracking by monitoring listing URLs between scrape runs. A self-hosted n8n workflow runs on a weekly schedule and pushes Current Listings, New Listings, Sold Items and a cross-site Model Synthesis rollup straight into Google Sheets. No manual report building.",
-    tools: ["Python", "Playwright", "n8n", "Google Sheets", "eBay API"],
-    problem:
-      "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock: slow, inconsistent, and easy to miss a good deal.",
-    result:
-      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system and saving months of manual market research.",
-  },
-  {
-    id: "proof-flow",
-    title: "Quoting App Rebuild",
-    category: "Quoting System · Django",
-    image: "/assets/Quoting_App_Dashboard.png",
-    gallery: ["/assets/ProofFlow_Proposals.png", "/assets/ProofFlow_Edit_Quote.png"],
-    alt: "Quoting platform dashboard with quote and proof stats, latest approvals, deadlines and follow-ups",
-    shows:
-      "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page, from the internal dashboard down to the customer's quote approval screen.",
-    build:
-      "A Django rebuild covering the full admin side (dynamic drag-and-drop quote editor, client management, a template hub with pricing-list import) and the customer-facing quote flow (Introduction, About, Product Spotlight, and an interactive Quote screen with itemized pricing and Approve/Amend/Reject actions).",
-    tools: ["Django", "Python", "HTML", "Figma", "GitHub", "Railway"],
-    problem:
-      "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
-    result:
-      "A pixel-matched, fully functional quoting system now used in live client operations, handling 5 to 7 new quotes a day and built to scale to hundreds, removing hours of double tagging across the CRM, reports and follow-ups and the duplicate proof reports, and replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
+      "One Slack message returns a set of matched roles, each with a role-specific resume already stored in Drive and an application email drafted, reducing hours of tailoring to a few minutes of review.",
   },
 ];
