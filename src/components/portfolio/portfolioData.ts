@@ -29,7 +29,6 @@ export const PORTFOLIO: PortfolioItem[] = [
     title: "Quoting App Rebuild",
     category: "Quoting System · Django",
     image: "/assets/Quoting_App_Dashboard.png",
-    gallery: ["/assets/ProofFlow_Proposals.png", "/assets/ProofFlow_Edit_Quote.png"],
     alt: "Quoting platform dashboard with quote and proof stats, latest approvals, deadlines and follow-ups",
     shows:
       "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page, from the internal dashboard down to the customer's quote approval screen.",
@@ -47,7 +46,6 @@ export const PORTFOLIO: PortfolioItem[] = [
     category: "Market Intelligence · Python + n8n",
     image: "/assets/Golf_Competitor_Monitor_Dashboard.png",
     alt: "Golf Competitor Monitor dashboard showing clubs sold, turnover, turnover per week and average sold price across seven Australian retailers",
-    gallery: ["/assets/Golf_Competitor_Monitor.png"],
     shows:
       "A multi-site scraping system tracking golf club listings across 5 competitor marketplaces, standardizing every listing into Brand, Model, Club Type, Build Year, Condition and Price, and tracking which listings sell versus stay live.",
     build:
