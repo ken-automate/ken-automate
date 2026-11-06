@@ -11,7 +11,6 @@ import { Faq } from "@/components/portfolio/Faq";
 import { ProblemsFixed } from "@/components/portfolio/ProblemsFixed";
 import { Search, GitBranch, Wrench, ClipboardCheck, Rocket, Headphones } from "lucide-react";
 const portrait = { url: "/assets/ken-cleofe-portrait-maroon.png" };
-const resume = { url: "/assets/Kenneth-Cleofe-Resume.pdf" };
 
 import { PROFILE } from "@/components/portfolio/data";
 
@@ -263,16 +262,6 @@ export function HomePage() {
             <SectionHeading title="Work experience" />
             <ExperienceList />
             <Credentials />
-            <div className="mt-10">
-              <a
-                href={resume.url}
-                download="Kenneth-Cleofe-Resume.pdf"
-                onMouseDown={ripple}
-                className="press ripple-host inline-block rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cta-hover hover:bg-secondary"
-              >
-                Download Resume
-              </a>
-            </div>
           </div>
         </section>
 
