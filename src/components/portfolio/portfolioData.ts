@@ -67,8 +67,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     shows:
       "A live website for a military relocation REALTOR®, with services, areas served, featured homes, client reviews, a contact form and an AI assistant that opens from a chat button.",
     build:
-      "A Next.js site with light and dark themes and a landing page for military moves. The AI assistant answers visitors in a chat window and is built to email the agent when a new chat starts and when a visitor shares an email or phone number. Search metadata, a sitemap and validated structured data help search engines read the site.",
-    tools: ["Next.js", "TypeScript", "Groq", "Vercel AI SDK", "Resend", "Framer Motion"],
+      "A Next.js site with light and dark themes and a landing page for military moves. The AI assistant answers visitors in a chat window and is built to email the agent when a new chat starts and when a visitor shares an email or phone number. SEO, AEO and GEO foundations are included, so search engines and AI tools like ChatGPT can read and understand the business: search metadata, a sitemap, page content readable without JavaScript, open access for crawlers, and validated structured data covering the agent's licenses, service areas and contact details.",
+    tools: ["Next.js", "TypeScript", "Groq", "Vercel AI SDK", "Resend", "Framer Motion", "SEO", "AEO", "GEO"],
     problem:
       "Military families moving on short notice need to find a local agent they can trust and get answers outside office hours, without a question going unnoticed.",
     result:
