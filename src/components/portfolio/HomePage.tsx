@@ -250,7 +250,7 @@ export function HomePage() {
           <div className="mx-auto max-w-6xl px-6 py-24">
             <SectionHeading
               title="Portfolio"
-              lead="Automations built and shipped inside live operations. Open a folder to see the build, the tools behind it and the value it delivers."
+              lead="Automations and websites for real business problems. Open a folder to see the build, the tools behind it and the value it delivers."
             />
             <PortfolioFolders />
           </div>

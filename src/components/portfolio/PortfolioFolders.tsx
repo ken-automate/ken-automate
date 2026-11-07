@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { Reveal } from "@/components/portfolio/Reveal";
 import { useRipple } from "@/components/portfolio/Ripple";
 import { PORTFOLIO, type PortfolioItem } from "@/components/portfolio/portfolioData";
@@ -185,7 +185,9 @@ export function PortfolioFolders() {
             // Keep keyboard focus inside the lightbox.
             if (e.key === "Tab") {
               e.preventDefault();
-              closeRef.current?.focus();
+              const items = [...e.currentTarget.querySelectorAll<HTMLElement>("a[href], button")];
+              const from = items.indexOf(document.activeElement as HTMLElement);
+              items[(from + (e.shiftKey ? -1 : 1) + items.length) % items.length]?.focus();
             }
           }}
         >
@@ -229,6 +231,17 @@ export function PortfolioFolders() {
                 <h3 id="lightbox-title" className="text-xl font-semibold sm:text-2xl">
                   {active.title}
                 </h3>
+                {active.liveUrl && (
+                  <a
+                    href={active.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="press !mt-4 inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-cta-hover hover:bg-secondary"
+                  >
+                    Visit live site
+                    <ArrowUpRight size={16} strokeWidth={1.5} />
+                  </a>
+                )}
               </div>
               {active.gallery && active.gallery.length > 0 && (
                 <div className="space-y-4 border-b border-border bg-background p-4 sm:p-6">

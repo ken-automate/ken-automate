@@ -16,6 +16,7 @@ export type PortfolioItem = {
   image: string;
   alt: string;
   gallery?: string[];
+  liveUrl?: string;
   shows: string;
   build: string;
   tools: string[];
@@ -55,6 +56,39 @@ export const PORTFOLIO: PortfolioItem[] = [
       "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock: slow, inconsistent, and easy to miss a good deal.",
     result:
       "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system and saving months of manual market research.",
+  },
+  {
+    id: "real-estate-site",
+    title: "Real Estate Website with AI Assistant",
+    category: "Live Website · Next.js + AI",
+    image: "/assets/Real_Estate_Website.webp",
+    alt: "Homepage of a military relocation real estate website with a portrait of the agent, buying and selling buttons, and a chat button",
+    liveUrl: "https://www.pcs2withnance.com/",
+    shows:
+      "A live website for a military relocation REALTOR®, with services, areas served, featured homes, client reviews, a contact form and an AI assistant that opens from a chat button.",
+    build:
+      "A Next.js site with light and dark themes and a landing page for military moves. The AI assistant answers visitors in a chat window and is built to email the agent when a new chat starts and when a visitor shares an email or phone number. Search metadata, a sitemap and validated structured data help search engines read the site.",
+    tools: ["Next.js", "TypeScript", "Groq", "Vercel AI SDK", "Resend", "Framer Motion"],
+    problem:
+      "Military families moving on short notice need to find a local agent they can trust and get answers outside office hours, without a question going unnoticed.",
+    result:
+      "A live site that presents the agent's experience and reviews clearly, gives visitors a chat assistant at any hour, and is built to alert the agent as soon as someone leaves their contact details.",
+  },
+  {
+    id: "studio-concept",
+    title: "Yoga Studio Homepage Redesign (Concept)",
+    category: "Website Redesign · Next.js",
+    image: "/assets/Studio_Homepage_Concept.webp",
+    alt: "Yoga studio homepage concept with a large 10 classes, 10 days, $10 headline beside a photo of a teacher assisting a student. The business name and locations are blurred.",
+    shows:
+      "A sample homepage redesign for a two-location yoga studio, showing how I would improve an existing business's website. The business details are blurred because this is a concept and not their live site.",
+    build:
+      "One responsive, interactive homepage: a studio picker that updates the address, schedule and pricing link, a short helper that recommends a first class, a filterable sample schedule, and a three-step booking demo. Nothing is sent or stored, because it is a design prototype.",
+    tools: ["Next.js", "React", "TypeScript", "Phosphor Icons"],
+    problem:
+      "A first-time visitor should quickly understand the intro offer, choose a location and find a class that suits them, without feeling they need yoga experience first.",
+    result:
+      "A working concept that leads with the offer and walks a newcomer from choosing a studio to picking a first class. The final build passed 204 automated checks across screen sizes from phone to large desktop.",
   },
   {
     id: "ai-receptionist",
