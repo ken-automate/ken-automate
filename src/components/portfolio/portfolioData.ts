@@ -79,7 +79,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     title: "Yoga Studio Homepage Redesign (Concept)",
     category: "Website Redesign · Next.js",
     image: "/assets/Studio_Homepage_Concept.webp",
-    alt: "Yoga studio homepage concept with a large 10 classes, 10 days, $10 headline beside a photo of a teacher assisting a student. The business name and locations are blurred.",
+    alt: "The full yoga studio homepage concept in three columns: the $10 intro offer and first-visit guide, the class helper and weekly schedule, and the studio story, reviews, membership pricing and footer. Business details are blurred.",
+    gallery: ["/assets/Studio_Homepage_Concept_Phone.webp"],
     shows:
       "A sample homepage redesign for a two-location yoga studio, showing how I would improve an existing business's website. The business details are blurred because this is a concept and not their live site.",
     build:
