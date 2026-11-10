@@ -9,6 +9,7 @@ import { ProcessTimeline } from "@/components/portfolio/ProcessTimeline";
 import { Credentials, ExperienceList } from "@/components/portfolio/Experience";
 import { Faq } from "@/components/portfolio/Faq";
 import { ProblemsFixed } from "@/components/portfolio/ProblemsFixed";
+import { Review } from "@/components/portfolio/Review";
 import { Search, GitBranch, Wrench, ClipboardCheck, Rocket, Headphones } from "lucide-react";
 const portrait = { url: "/assets/ken-cleofe-portrait-maroon.png" };
 
@@ -253,6 +254,14 @@ export function HomePage() {
               lead="Automations and websites for real business problems. Open a folder to see the build, the tools behind it and the value it delivers."
             />
             <PortfolioFolders />
+          </div>
+        </section>
+
+        {/* Review: proof straight after the work it talks about */}
+        <section id="review" className="border-b border-border">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <SectionHeading title="Employer review" />
+            <Review />
           </div>
         </section>
 
