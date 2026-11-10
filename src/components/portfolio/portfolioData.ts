@@ -11,6 +11,8 @@ const ragAgent = { url: "/assets/RAG.webp" };
 
 export type PortfolioItem = {
   id: string;
+  group: "website" | "automation";
+  status?: "In client use";
   title: string;
   category: string;
   image: string;
@@ -24,41 +26,11 @@ export type PortfolioItem = {
   result: string;
 };
 
+// Websites first, then automations in the order small businesses ask for them most.
 export const PORTFOLIO: PortfolioItem[] = [
   {
-    id: "proof-flow",
-    title: "Quoting App Rebuild",
-    category: "Quoting System · Django",
-    image: "/assets/Quoting_App_Dashboard.png",
-    alt: "Quoting platform dashboard with quote and proof stats, latest approvals, deadlines and follow-ups",
-    shows:
-      "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page, from the internal dashboard down to the customer's quote approval screen.",
-    build:
-      "A Django rebuild covering the full admin side (dynamic drag-and-drop quote editor, client management, a template hub with pricing-list import) and the customer-facing quote flow (Introduction, About, Product Spotlight, and an interactive Quote screen with itemized pricing and Approve/Amend/Reject actions).",
-    tools: ["Django", "Python", "HTML", "Figma", "GitHub", "Railway"],
-    problem:
-      "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
-    result:
-      "A pixel-matched, fully functional quoting system now used in live client operations, handling 5 to 7 new quotes a day and built to scale to hundreds, removing hours of double tagging across the CRM, reports and follow-ups and the duplicate proof reports, and replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
-  },
-  {
-    id: "golf-monitor",
-    title: "Golf Club Competitor Price & Inventory Monitor",
-    category: "Market Intelligence · Python + n8n",
-    image: "/assets/Golf_Competitor_Monitor_Dashboard.png",
-    alt: "Golf Competitor Monitor dashboard showing clubs sold, turnover, turnover per week and average sold price across seven Australian retailers",
-    shows:
-      "A multi-site scraping system tracking golf club listings across 5 competitor marketplaces, standardizing every listing into Brand, Model, Club Type, Build Year, Condition and Price, and tracking which listings sell versus stay live.",
-    build:
-      "Python scrapers (including Playwright for JS-rendered sites) covering 5 AU golf retailers, with sold-vs-new tracking by monitoring listing URLs between scrape runs. A self-hosted n8n workflow runs on a weekly schedule and pushes Current Listings, New Listings, Sold Items and a cross-site Model Synthesis rollup straight into Google Sheets. No manual report building.",
-    tools: ["Python", "Playwright", "n8n", "Google Sheets", "eBay API"],
-    problem:
-      "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock: slow, inconsistent, and easy to miss a good deal.",
-    result:
-      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system and saving months of manual market research.",
-  },
-  {
     id: "real-estate-site",
+    group: "website",
     title: "Real Estate Website with AI Assistant",
     category: "Live Website · Next.js + AI",
     image: "/assets/Real_Estate_Website.webp",
@@ -75,24 +47,63 @@ export const PORTFOLIO: PortfolioItem[] = [
       "A live site that presents the agent's experience and reviews clearly, gives visitors a chat assistant at any hour, and is built to alert the agent as soon as someone leaves their contact details.",
   },
   {
-    id: "studio-concept",
-    title: "Yoga Studio Homepage Redesign (Concept)",
+    id: "mortgage-broker-site",
+    group: "website",
+    title: "Mortgage Broker Website",
+    category: "Website · HTML, CSS, JavaScript",
+    image: "/assets/Mortgage_Broker_Website.webp",
+    alt: "The full homepage of a Sydney mortgage broker website in three columns: a coastal home hero, the introduction and loan services, the guidance principles, three steps and a home video section, then sample testimonials and the closing call to action",
+    gallery: ["/assets/Mortgage_Broker_Website_Phone.webp"],
+    liveUrl: "https://harbourline-home-loans.netlify.app/",
+    shows:
+      "A four-page website for a Sydney mortgage broker: Home, Services, About and Contact. It is a sample built to show the standard of site I deliver, so the business and its founder are fictional, and the site says so.",
+    build:
+      "Plain HTML, CSS and JavaScript with no build step. Two short looping videos play in the hero and a home section, with still images on phones and for visitors who prefer less motion. The contact form checks every field and connects to n8n, Make or GoHighLevel by changing one setting, with a slot for a booking link, search metadata, a sitemap and structured data.",
+    tools: ["HTML", "CSS", "JavaScript", "Webhooks", "Netlify", "SEO"],
+    problem:
+      "A mortgage broker sells trust. A template website makes a premium adviser look like everyone else, and a contact form that quietly fails loses real clients.",
+    result:
+      "A polished site that reads clearly on phones and desktops, with every enquiry ready to flow into the broker's own automations. A confirmation only shows after a successful send, so no enquiry is silently lost.",
+  },
+  {
+    id: "proof-flow",
+    group: "website",
+    status: "In client use",
+    title: "Quoting App Rebuild",
+    category: "Quoting System · Django",
+    image: "/assets/Quoting_App_Dashboard.png",
+    alt: "Quoting platform dashboard with quote and proof stats, latest approvals, deadlines and follow-ups",
+    shows:
+      "A full rebuild of a client-facing and admin quoting platform, matching hand-coded design mockups page-by-page, from the internal dashboard down to the customer's quote approval screen.",
+    build:
+      "A Django rebuild covering the full admin side (dynamic drag-and-drop quote editor, client management, a template hub with pricing-list import) and the customer-facing quote flow (Introduction, About, Product Spotlight, and an interactive Quote screen with itemized pricing and Approve/Amend/Reject actions).",
+    tools: ["Django", "Python", "HTML", "Figma", "GitHub", "Railway"],
+    problem:
+      "The existing quoting tool was outdated and inconsistent with the business's actual brand and workflow, creating friction for both staff building quotes and clients approving them.",
+    result:
+      "A pixel-matched, fully functional quoting system now used in live client operations, handling 5 to 7 new quotes a day and built to scale to hundreds, removing hours of double tagging across the CRM, reports and follow-ups and the duplicate proof reports, and replacing a manual/inconsistent process with one polished, on-brand flow from quote creation to client approval.",
+  },
+  {
+    id: "studio-redesign",
+    group: "website",
+    title: "Yoga Studio Homepage Redesign",
     category: "Website Redesign · Next.js",
     image: "/assets/Studio_Homepage_Concept.webp",
-    alt: "The full yoga studio homepage concept in three columns: the $10 intro offer and first-visit guide, the class helper and weekly schedule, and the studio story, reviews, membership pricing and footer. Business details are blurred.",
+    alt: "The full yoga studio homepage redesign in three columns: the $10 intro offer and first-visit guide, the class helper and weekly schedule, and the studio story, reviews, membership pricing and footer. Business details are blurred.",
     gallery: ["/assets/Studio_Homepage_Concept_Phone.webp"],
     shows:
-      "A sample homepage redesign for a two-location yoga studio, showing how I would improve an existing business's website. The business details are blurred because this is a concept and not their live site.",
+      "A sample homepage redesign for a two-location yoga studio, showing how I would improve an existing business's website. The business details are blurred because it is a sample and not their live site.",
     build:
       "One responsive, interactive homepage: a studio picker that updates the address, schedule and pricing link, a short helper that recommends a first class, a filterable sample schedule, and a three-step booking demo. Nothing is sent or stored, because it is a design prototype.",
     tools: ["Next.js", "React", "TypeScript", "Phosphor Icons"],
     problem:
       "A first-time visitor should quickly understand the intro offer, choose a location and find a class that suits them, without feeling they need yoga experience first.",
     result:
-      "A working concept that leads with the offer and walks a newcomer from choosing a studio to picking a first class. The final build passed 204 automated checks across screen sizes from phone to large desktop.",
+      "A working redesign that leads with the offer and walks a newcomer from choosing a studio to picking a first class. The final build passed 204 automated checks across screen sizes from phone to large desktop.",
   },
   {
     id: "ai-receptionist",
+    group: "automation",
     title: "AI Voice Receptionist & Booking System",
     category: "Conversational AI · n8n + Vapi",
     image: receptionist.url,
@@ -108,23 +119,25 @@ export const PORTFOLIO: PortfolioItem[] = [
       "Calls are answered instantly and appointments booked, rescheduled or cancelled inside the conversation, with the calendar and records updated in real time and clean error handling when details are missing.",
   },
   {
-    id: "asana-crm",
-    title: "Asana CRM Lead Engagement Workflow",
-    category: "CRM Automation · Zapier",
-    image: asanaLeads.url,
-    alt: "Zapier workflow splitting an Asana task update into five lead-stage paths with Gmail follow-ups",
+    id: "golf-monitor",
+    group: "automation",
+    title: "Golf Club Competitor Price & Inventory Monitor",
+    category: "Market Intelligence · Python + n8n",
+    image: "/assets/Golf_Competitor_Monitor_Dashboard.png",
+    alt: "Golf Competitor Monitor dashboard showing clubs sold, turnover, turnover per week and average sold price across seven Australian retailers",
     shows:
-      "A 23-step Zapier Zap where a single Asana task update fans out into five parallel pipeline paths (Ready to Start, No Response, Quoted, Approved, and Paid and Closed), each with its own conditions, delays and email actions.",
+      "A multi-site scraping system tracking golf club listings across 5 competitor marketplaces, standardizing every listing into Brand, Model, Club Type, Build Year, Condition and Price, and tracking which listings sell versus stay live.",
     build:
-      "Asana acts as the lightweight CRM. When a task moves stage, Paths route the lead down the correct branch: lead folders are created in Google Drive, staged follow-up emails go out through Gmail with Delay and Filter steps between attempts, approved deals pull their PDF quote from Drive, and AI by Zapier drafts a personalised welcome message before it is sent.",
-    tools: ["Zapier", "Asana", "Gmail", "Google Drive", "AI by Zapier"],
+      "Python scrapers (including Playwright for JS-rendered sites) covering 5 AU golf retailers, with sold-vs-new tracking by monitoring listing URLs between scrape runs. A self-hosted n8n workflow runs on a weekly schedule and pushes Current Listings, New Listings, Sold Items and a cross-site Model Synthesis rollup straight into Google Sheets. No manual report building.",
+    tools: ["Python", "Playwright", "n8n", "Google Sheets", "eBay API"],
     problem:
-      "Leads were slipping between stages because follow-up depended on someone remembering to send the next email, and quoted deals went cold with no second touch.",
+      "Spotting resale/flip opportunities in secondhand golf clubs meant manually checking multiple competitor sites for pricing and stock: slow, inconsistent, and easy to miss a good deal.",
     result:
-      "Every stage change now triggers the right follow-up automatically, quoted leads receive a timed second and third touch, and onboarding emails go out the moment a deal is approved. No manual chasing.",
+      "A live, auto-updating weekly report showing real market pricing, what's actually selling, and cross-site inventory overlap, turning hours of manual browsing into a scheduled system and saving months of manual market research.",
   },
   {
     id: "leads-enrichment",
+    group: "automation",
     title: "Automated Lead Enrichment & Routing",
     category: "Sales Ops · Zapier + Apollo",
     image: leadsEnrichment.url,
@@ -140,55 +153,25 @@ export const PORTFOLIO: PortfolioItem[] = [
       "Leads arrive pre-enriched and pre-qualified, with the best ones surfaced in Slack in seconds and a draft email already written, cutting research time to zero and shortening first-response time.",
   },
   {
-    id: "rag-agent",
-    title: "RAG Knowledge Agent with Live Sync",
-    category: "AI Infrastructure · n8n",
-    image: ragAgent.url,
-    alt: "n8n workflow with a RAG chat agent and three branches syncing Google Drive documents to a vector store",
+    id: "asana-crm",
+    group: "automation",
+    title: "Asana CRM Lead Engagement Workflow",
+    category: "CRM Automation · Zapier",
+    image: asanaLeads.url,
+    alt: "Zapier workflow splitting an Asana task update into five lead-stage paths with Gmail follow-ups",
     shows:
-      "Four grouped n8n flows: a chat-triggered RAG Agent, plus New Docs, Delete Docs and File Updated branches that keep a Supabase vector store in sync with a Google Drive folder.",
+      "A 23-step Zapier Zap where a single Asana task update fans out into five parallel pipeline paths (Ready to Start, No Response, Quoted, Approved, and Paid and Closed), each with its own conditions, delays and email actions.",
     build:
-      "The agent answers chat messages using an OpenAI chat model, memory and a Supabase Vector Store tool. Three Drive watchers maintain the index: created files are downloaded, embedded and inserted; deleted files remove their rows; updated files delete the stale rows and re-embed the new version, so retrieval always reflects the current documents.",
-    tools: ["n8n", "Supabase Vector Store", "OpenAI Embeddings", "Google Drive"],
+      "Asana acts as the lightweight CRM. When a task moves stage, Paths route the lead down the correct branch: lead folders are created in Google Drive, staged follow-up emails go out through Gmail with Delay and Filter steps between attempts, approved deals pull their PDF quote from Drive, and AI by Zapier drafts a personalised welcome message before it is sent.",
+    tools: ["Zapier", "Asana", "Gmail", "Google Drive", "AI by Zapier"],
     problem:
-      "Internal answers lived in scattered documents, and any AI assistant built on them went stale the moment a file was edited.",
+      "Leads were slipping between stages because follow-up depended on someone remembering to send the next email, and quoted deals went cold with no second touch.",
     result:
-      "Staff get grounded answers from company documents through chat, and the knowledge base updates itself on every file create, edit or delete. No re-indexing task and no outdated responses.",
-  },
-  {
-    id: "facebook-agent",
-    title: "AI Agent for Facebook Messenger",
-    category: "Conversational AI · n8n",
-    image: agentFacebook.url,
-    alt: "n8n workflow with a webhook, verification branch and an AI agent using Gemini and memory",
-    shows:
-      "An n8n workflow where a webhook handles both Facebook's GET verification handshake and POST message events, feeding filtered messages into an AI Agent node backed by Google Gemini and a memory buffer.",
-    build:
-      "GET requests hit an If node that responds to Facebook's verification challenge. POST messages pass a Filter, load business context from a knowledge document, then run through an AI Agent with Gemini as the chat model and Simple Memory for conversation continuity. The reply is sent back through the Graph API via HTTP Request.",
-    tools: ["n8n", "Facebook Graph API", "Google Gemini", "Webhooks"],
-    problem:
-      "Page enquiries arrived at all hours and went unanswered until someone opened the inbox, costing leads to faster-replying competitors.",
-    result:
-      "Every message gets an accurate, context-aware answer within seconds, 24/7, with conversation memory so follow-up questions make sense, and only genuine handovers reach a human.",
-  },
-  {
-    id: "xero-asana",
-    title: "Xero to Asana Transaction Export",
-    category: "Finance Ops · Make",
-    image: xeroAsana.url,
-    alt: "Make scenario exporting Xero account transactions into Google Sheets and attaching a CSV to Asana",
-    shows:
-      "A Make (Integromat) scenario chaining an Asana trigger, a Xero API call, a Router with two branches, an Iterator, and multiple Google Sheets modules feeding a CSV attachment back to Asana.",
-    build:
-      "When a task is completed in Asana, the scenario calls the Xero API for the matching account transactions. The Router handles two flows: the first iterates each transaction into a Google Sheets row; the second sleeps, reads the range back, aggregates it into a CSV, uploads it as an Asana attachment and clears the sheet ready for the next run.",
-    tools: ["Make (Integromat)", "Xero", "Asana", "Google Sheets"],
-    problem:
-      "Reconciling finance data meant exporting from Xero by hand, reformatting it in a spreadsheet, and re-uploading it wherever the team was tracking the job.",
-    result:
-      "Transaction exports are generated and attached to the right task automatically, with a self-clearing staging sheet so the process repeats cleanly every time, removing a recurring manual export job.",
+      "Every stage change now triggers the right follow-up automatically, quoted leads receive a timed second and third touch, and onboarding emails go out the moment a deal is approved. No manual chasing.",
   },
   {
     id: "gmail-drive",
+    group: "automation",
     title: "Auto-Sort Gmail Attachments to Drive",
     category: "Back Office · Make + AI",
     image: gmailDrive.url,
@@ -204,7 +187,59 @@ export const PORTFOLIO: PortfolioItem[] = [
       "Documents file themselves within minutes of arriving, under a predictable naming convention, with a searchable log, so nothing is lost and no one spends time on inbox housekeeping.",
   },
   {
+    id: "xero-asana",
+    group: "automation",
+    title: "Xero to Asana Transaction Export",
+    category: "Finance Ops · Make",
+    image: xeroAsana.url,
+    alt: "Make scenario exporting Xero account transactions into Google Sheets and attaching a CSV to Asana",
+    shows:
+      "A Make (Integromat) scenario chaining an Asana trigger, a Xero API call, a Router with two branches, an Iterator, and multiple Google Sheets modules feeding a CSV attachment back to Asana.",
+    build:
+      "When a task is completed in Asana, the scenario calls the Xero API for the matching account transactions. The Router handles two flows: the first iterates each transaction into a Google Sheets row; the second sleeps, reads the range back, aggregates it into a CSV, uploads it as an Asana attachment and clears the sheet ready for the next run.",
+    tools: ["Make (Integromat)", "Xero", "Asana", "Google Sheets"],
+    problem:
+      "Reconciling finance data meant exporting from Xero by hand, reformatting it in a spreadsheet, and re-uploading it wherever the team was tracking the job.",
+    result:
+      "Transaction exports are generated and attached to the right task automatically, with a self-clearing staging sheet so the process repeats cleanly every time, removing a recurring manual export job.",
+  },
+  {
+    id: "facebook-agent",
+    group: "automation",
+    title: "AI Agent for Facebook Messenger",
+    category: "Conversational AI · n8n",
+    image: agentFacebook.url,
+    alt: "n8n workflow with a webhook, verification branch and an AI agent using Gemini and memory",
+    shows:
+      "An n8n workflow where a webhook handles both Facebook's GET verification handshake and POST message events, feeding filtered messages into an AI Agent node backed by Google Gemini and a memory buffer.",
+    build:
+      "GET requests hit an If node that responds to Facebook's verification challenge. POST messages pass a Filter, load business context from a knowledge document, then run through an AI Agent with Gemini as the chat model and Simple Memory for conversation continuity. The reply is sent back through the Graph API via HTTP Request.",
+    tools: ["n8n", "Facebook Graph API", "Google Gemini", "Webhooks"],
+    problem:
+      "Page enquiries arrived at all hours and went unanswered until someone opened the inbox, costing leads to faster-replying competitors.",
+    result:
+      "Every message gets an accurate, context-aware answer within seconds, 24/7, with conversation memory so follow-up questions make sense, and only genuine handovers reach a human.",
+  },
+  {
+    id: "rag-agent",
+    group: "automation",
+    title: "RAG Knowledge Agent with Live Sync",
+    category: "AI Infrastructure · n8n",
+    image: ragAgent.url,
+    alt: "n8n workflow with a RAG chat agent and three branches syncing Google Drive documents to a vector store",
+    shows:
+      "Four grouped n8n flows: a chat-triggered RAG Agent, plus New Docs, Delete Docs and File Updated branches that keep a Supabase vector store in sync with a Google Drive folder.",
+    build:
+      "The agent answers chat messages using an OpenAI chat model, memory and a Supabase Vector Store tool. Three Drive watchers maintain the index: created files are downloaded, embedded and inserted; deleted files remove their rows; updated files delete the stale rows and re-embed the new version, so retrieval always reflects the current documents.",
+    tools: ["n8n", "Supabase Vector Store", "OpenAI Embeddings", "Google Drive"],
+    problem:
+      "Internal answers lived in scattered documents, and any AI assistant built on them went stale the moment a file was edited.",
+    result:
+      "Staff get grounded answers from company documents through chat, and the knowledge base updates itself on every file create, edit or delete. No re-indexing task and no outdated responses.",
+  },
+  {
     id: "content-repurposing",
+    group: "automation",
     title: "AI Content Repurposing Pipeline",
     category: "Marketing Automation · Zapier",
     image: repurposing.url,
@@ -221,6 +256,7 @@ export const PORTFOLIO: PortfolioItem[] = [
   },
   {
     id: "shorts-creator",
+    group: "automation",
     title: "Automated Shorts & Reels Creator",
     category: "Content Automation · n8n",
     image: shortsCreator.url,
@@ -237,6 +273,7 @@ export const PORTFOLIO: PortfolioItem[] = [
   },
   {
     id: "job-scraper",
+    group: "automation",
     title: "AI Job Scraper & Resume Optimizer",
     category: "AI Workflow · n8n",
     image: jobScraper.url,

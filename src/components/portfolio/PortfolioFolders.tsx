@@ -11,16 +11,31 @@ const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 const THUMB_RADIUS = 10; // matches .folder-peek border-radius
 const BIG_RADIUS = 16;
 
+// Automations shown before "Show more"; two full rows at three across.
+const FIRST_AUTOMATIONS = 6;
+
+function StatusLabel({ status }: { status: PortfolioItem["status"] }) {
+  if (!status) return null;
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2 py-0.5 text-[11px] font-medium text-foreground">
+      <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+      {status}
+    </span>
+  );
+}
+
 function FolderCard({
   item,
   index,
   onOpen,
   delay,
+  large,
 }: {
   item: PortfolioItem;
   index: number;
   onOpen: () => void;
   delay: number;
+  large?: boolean;
 }) {
   const ripple = useRipple();
   return (
@@ -30,7 +45,7 @@ function FolderCard({
         onClick={onOpen}
         onMouseDown={ripple}
         data-folder={index}
-        className="folder-card ripple-host press group w-full text-left"
+        className={`folder-card ripple-host press group w-full text-left${large ? " folder-card--large" : ""}`}
         aria-label={`Open ${item.title}`}
       >
         <span className="folder-tab" aria-hidden />
@@ -44,8 +59,11 @@ function FolderCard({
             />
           </span>
           <span className="folder-front">
-            <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
-              {item.category}
+            <span className="flex items-center justify-between gap-3">
+              <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+                {item.category}
+              </span>
+              <StatusLabel status={item.status} />
             </span>
             <span className="mt-2 block text-sm font-semibold leading-snug text-foreground">
               {item.title}
@@ -54,6 +72,16 @@ function FolderCard({
         </span>
       </button>
     </Reveal>
+  );
+}
+
+function GroupHeading({ title, count }: { title: string; count: number }) {
+  return (
+    <div className="mb-8 flex items-center gap-4">
+      <h3 className="text-lg font-semibold tracking-[-0.01em]">{title}</h3>
+      <span className="font-mono text-[11px] text-muted-foreground">{count}</span>
+      <span className="h-px flex-1 bg-border" aria-hidden />
+    </div>
   );
 }
 
@@ -94,6 +122,7 @@ export function PortfolioFolders() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [shown, setShown] = useState(false);
   const [ratio, setRatio] = useState("16 / 9");
+  const [allAutomations, setAllAutomations] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
   const bigRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -155,23 +184,76 @@ export function PortfolioFolders() {
 
   useEffect(() => () => lockScroll(false), []);
 
+  const open = (i: number) => {
+    if (openIndex !== null) return;
+    const thumb = thumbFor(i);
+    if (thumb?.naturalWidth) setRatio(`${thumb.naturalWidth} / ${thumb.naturalHeight}`);
+    setOpenIndex(i);
+  };
+
+  // Indexes stay those of PORTFOLIO, so the lightbox can find any folder's thumbnail.
+  const indexed = PORTFOLIO.map((item, index) => ({ item, index }));
+  const websites = indexed.filter(({ item }) => item.group === "website");
+  const automations = indexed.filter(({ item }) => item.group === "automation");
+  const hiddenCount = automations.length - FIRST_AUTOMATIONS;
+
+  const showAll = () => {
+    setAllAutomations(true);
+    // Move keyboard focus to the first folder that just appeared.
+    const next = automations[FIRST_AUTOMATIONS]?.index;
+    requestAnimationFrame(() =>
+      gridRef.current
+        ?.querySelector<HTMLButtonElement>(`[data-folder="${next}"]`)
+        ?.focus({ preventScroll: true }),
+    );
+  };
+
   return (
     <>
-      <div ref={gridRef} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {PORTFOLIO.map((item, i) => (
-          <FolderCard
-            key={item.id}
-            item={item}
-            index={i}
-            delay={(i % 3) * 90}
-            onOpen={() => {
-              if (openIndex !== null) return;
-              const thumb = thumbFor(i);
-              if (thumb?.naturalWidth) setRatio(`${thumb.naturalWidth} / ${thumb.naturalHeight}`);
-              setOpenIndex(i);
-            }}
-          />
-        ))}
+      <div ref={gridRef} className="space-y-16">
+        <div>
+          <GroupHeading title="Websites" count={websites.length} />
+          <div className="grid gap-6 sm:grid-cols-2">
+            {websites.map(({ item, index }, i) => (
+              <FolderCard
+                key={item.id}
+                item={item}
+                index={index}
+                delay={(i % 2) * 90}
+                large
+                onOpen={() => open(index)}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <GroupHeading title="Automations and AI" count={automations.length} />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Folders past the first rows stay in the HTML for crawlers, hidden until asked for. */}
+            {automations.map(({ item, index }, i) => (
+              <div key={item.id} hidden={!allAutomations && i >= FIRST_AUTOMATIONS}>
+                <FolderCard
+                  item={item}
+                  index={index}
+                  delay={i < FIRST_AUTOMATIONS ? (i % 3) * 90 : 0}
+                  onOpen={() => open(index)}
+                />
+              </div>
+            ))}
+          </div>
+          {!allAutomations && hiddenCount > 0 && (
+            <div className="mt-10 flex justify-center">
+              <button
+                type="button"
+                onClick={showAll}
+                className="press inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-cta-hover hover:bg-secondary"
+              >
+                Show {hiddenCount} more automations
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       {active && openIndex !== null && (
@@ -225,8 +307,11 @@ export function PortfolioFolders() {
               className={`mt-6 overflow-hidden rounded-2xl border border-border bg-surface transition-[opacity,transform] duration-300 ${shown ? "translate-y-0 opacity-100 delay-300" : "translate-y-2 opacity-0"}`}
             >
               <div className="space-y-2 border-b border-border p-6">
-                <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
-                  {active.category}
+                <span className="flex flex-wrap items-center gap-3">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
+                    {active.category}
+                  </span>
+                  <StatusLabel status={active.status} />
                 </span>
                 <h3 id="lightbox-title" className="text-xl font-semibold sm:text-2xl">
                   {active.title}
