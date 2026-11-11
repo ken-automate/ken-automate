@@ -30,7 +30,7 @@ Every project starts with a free discovery call. Pricing depends on the workload
 
 ## Experience
 
-- **AI Specialist - Web Developer:** KB Executive Search (Australia, remote, project-based), building websites for small and medium business owners and professionals. Nov 2026 to present.
+- **AI Specialist - Web Developer:** KB Executive Search (Australia, remote, project-based), building websites for small and medium business owners and professionals. Present.
 - **System and Automation Manager:** Site Skins, Focus Banners and Arena Branding, three sister brands under one owner (Australia, remote). May 2026 to Nov 2026.
 - **Operations Manager:** Summit Glazing Solutions Inc. Feb 2022 to Feb 2026.
 - **Department Manager:** SM Retail, leading a 50 to 70 person department. 2017 to 2020.

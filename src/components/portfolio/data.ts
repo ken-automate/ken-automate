@@ -87,7 +87,7 @@ export const EXPERIENCE = [
   {
     role: "AI Specialist - Web Developer",
     company: "KB Executive Search (Australia, remote, project-based)",
-    period: "Nov 2026 - Present",
+    period: "Present",
     points: [
       "Build websites for small and medium business owners and professionals, project by project.",
     ],
