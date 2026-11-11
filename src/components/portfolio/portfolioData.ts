@@ -33,8 +33,8 @@ export const PORTFOLIO: PortfolioItem[] = [
     group: "website",
     title: "Real Estate Website with AI Assistant",
     category: "Live Website · Next.js + AI",
-    image: "/assets/Real_Estate_Website.webp",
-    alt: "Homepage of a military relocation real estate website with a portrait of the agent, buying and selling buttons, and a chat button",
+    image: "/assets/Real_Estate_Website_Home.webp",
+    alt: "Homepage of a military relocation real estate website with an aerial video of Mount Rainier and Washington neighbourhoods behind the headline, buying and selling buttons, and a chat button",
     liveUrl: "https://www.pcs2withnance.com/",
     shows:
       "A live website for a military relocation REALTOR®, with services, areas served, featured homes, client reviews, a contact form and an AI assistant that opens from a chat button.",
