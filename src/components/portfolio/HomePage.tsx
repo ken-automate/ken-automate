@@ -260,7 +260,7 @@ export function HomePage() {
         {/* Review: proof straight after the work it talks about */}
         <section id="review" className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-24">
-            <SectionHeading title="Employer review" />
+            <SectionHeading title="Past employer review" />
             <Review />
           </div>
         </section>

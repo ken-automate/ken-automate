@@ -85,14 +85,22 @@ export const PROBLEMS = [
 
 export const EXPERIENCE = [
   {
+    role: "AI Specialist - Web Developer",
+    company: "KB Executive Search (Australia, remote, project-based)",
+    period: "Nov 2026 - Present",
+    points: [
+      "Build websites for small and medium business owners and professionals, project by project.",
+    ],
+  },
+  {
     role: "System and Automation Manager",
     company: "Site Skins, Focus Banners & Arena Branding (Australia, remote)",
-    period: "Present",
+    period: "May 2026 - Nov 2026",
     points: [
-      "Manage the systems and automations behind three sister brands, Site Skins, Focus Banners and Arena Branding, under the same owner.",
+      "Managed the systems and automations behind three sister brands, Site Skins, Focus Banners and Arena Branding, under the same owner.",
       "Rebuilt the company quoting platform in Django, replacing an outdated, inconsistent tool with a system now used in live client operations: it handles the 5 to 7 new quotes a day across all three brands and is built to scale to hundreds.",
       "Built a drag-and-drop quote editor, client management and a template hub with pricing-list import, so staff build on-brand quotes from saved templates instead of from scratch.",
-      "Run quoting and proofing for all three brands from one dashboard, tracking sent, viewed and approved quotes and pending proofs in one place.",
+      "Ran quoting and proofing for all three brands from one dashboard, tracking sent, viewed and approved quotes and pending proofs in one place.",
       "Set up automatic follow-ups for quotes that are viewed but not answered (3 working days after first view, then 30 days later), plus alerts for proposals about to expire.",
     ],
   },
